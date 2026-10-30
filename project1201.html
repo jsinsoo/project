@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>생태계 개체수 성장 모형</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#f1f6f1;margin:0;color:#1d2b1d}
+main{max-width:760px;margin:0 auto;padding:20px}
+.tag{font-size:12px;color:#2e7d32;font-weight:700}
+h1{margin:4px 0}
+.card{background:#fff;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 1px 4px #0002}
+label{display:block;margin:8px 0 2px;font-size:14px}
+input{padding:8px;width:100%;box-sizing:border-box;border:1px solid #aaa;border-radius:6px}
+button{margin-top:12px;padding:10px 16px;border:0;border-radius:8px;background:#2e7d32;color:#fff;font-size:15px;cursor:pointer}
+button.sub{background:#607d8b}
+#err{color:#c62828;margin-top:8px;min-height:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{border-bottom:1px solid #ddd;padding:5px;text-align:right}
+canvas{width:100%;height:240px}
+.note{font-size:12px;color:#555}
+.name{text-align:right;font-weight:700;color:#2e7d32;margin-top:20px}
+</style></head><body><main>
+<div class="tag">SCHOOL PROJECT · MVP</div>
+<h1>🌿 생태계 개체수 성장 모형</h1>
+<p>생태 연구자가 초기 개체수·성장률·환경 수용력을 입력하면 시점별 예측 개체수를 보여줍니다.</p>
+<div class="card">
+<label>초기 개체수 (0 초과, 수용력 이하)</label><input id="p" type="number" value="20">
+<label>성장률 r (0~3)</label><input id="r" type="number" step="0.01" value="0.35">
+<label>환경 수용력 K (1 이상)</label><input id="k" type="number" value="100">
+<label>반복 횟수 (1~200)</label><input id="n" type="number" value="20">
+<button onclick="run()">시뮬레이션 실행</button>
+<button class="sub" onclick="csv()">CSV 다운로드</button>
+<div id="err"></div>
+<p class="note">모형은 실제 생태계를 단순화한 로지스틱 성장식입니다: P ← P + r·P·(1 − P/K)</p>
+</div>
+<div class="card"><canvas id="c" width="700" height="240"></canvas></div>
+<div class="card"><table><thead><tr><th>시점</th><th>예측 개체수</th></tr></thead><tbody id="t"></tbody></table></div>
+<div class="name">1201 고광리</div>
+</main>
+<script>
+let data=[];
+function run(){
+ const P=parseFloat(p.value),R=parseFloat(r.value),K=parseFloat(k.value),N=parseInt(n.value);
+ const e=document.getElementById('err');e.textContent='';
+ if([P,R,K,N].some(isNaN)){e.textContent='모든 값을 숫자로 입력하세요.';return}
+ if(K<1){e.textContent='환경 수용력은 1 이상이어야 합니다.';return}
+ if(P<=0||P>K){e.textContent='초기 개체수는 0보다 크고 수용력 이하여야 합니다.';return}
+ if(R<0||R>3){e.textContent='성장률은 0~3 사이여야 합니다.';return}
+ if(N<1||N>200){e.textContent='반복 횟수는 1~200이어야 합니다.';return}
+ let x=P;data=[];
+ for(let i=0;i<=N;i++){data.push([i,x]);x+=R*x*(1-x/K)}
+ t.innerHTML=data.map(d=>`<tr><td>${d[0]}</td><td>${d[1].toFixed(2)}</td></tr>`).join('');
+ draw(K);
+}
+function draw(K){
+ const cv=document.getElementById('c'),g=cv.getContext('2d'),W=cv.width,H=cv.height;
+ g.clearRect(0,0,W,H);
+ const mx=Math.max(K,...data.map(d=>d[1]))*1.05;
+ const X=i=>30+i/(data.length-1||1)*(W-45),Y=v=>H-20-v/mx*(H-35);
+ g.strokeStyle='#c62828';g.setLineDash([5,4]);g.beginPath();g.moveTo(30,Y(K));g.lineTo(W-10,Y(K));g.stroke();
+ g.fillStyle='#c62828';g.fillText('K='+K,34,Y(K)-4);g.setLineDash([]);
+ g.strokeStyle='#2e7d32';g.lineWidth=2;g.beginPath();
+ data.forEach((d,i)=>i?g.lineTo(X(i),Y(d[1])):g.moveTo(X(i),Y(d[1])));g.stroke();
+}
+function csv(){
+ if(!data.length){err.textContent='먼저 시뮬레이션을 실행하세요.';return}
+ const b=new Blob(['\ufeff시점,개체수\n'+data.map(d=>d[0]+','+d[1].toFixed(2)).join('\n')],{type:'text/csv'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='population.csv';a.click();
+}
+run();
+</script></body></html>
