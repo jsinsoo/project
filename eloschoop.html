@@ -1,0 +1,1268 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>지수·로그·삼각·역삼각함수 37개 공식 — 증명·예제·OOP</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f3f6fc;color:#192b44;font:16px/1.9 "Malgun Gothic","Noto Sans KR",sans-serif}header{background:linear-gradient(110deg,#123765,#3477bb);color:#fff;padding:36px max(22px,calc((100vw - 1160px)/2))}header h1{font-size:clamp(23px,3vw,32px);margin:0}header p{margin:8px 0 0;opacity:.92}main{max-width:1160px;margin:auto;padding:20px}.intro,.entry{background:white;border:1px solid #d9e4f1;border-radius:16px;padding:clamp(18px,3vw,32px);margin:20px 0;box-shadow:0 5px 20px #18395b0b}.entry{scroll-margin-top:15px}.eyebrow{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13px;color:#61768d}.tag{background:#e8f1ff;color:#24558c;padding:3px 11px;border-radius:50px;font-weight:700}h2{font-size:24px;color:#18477e;margin:15px 0}h3{font-size:18px;color:#235c96;margin:30px 0 12px;padding-left:12px;border-left:4px solid #6c9dd2}.formula{background:#edf5ff;border:1px solid #d8e8fa;border-left:5px solid #337ac2;border-radius:10px;padding:16px 10px;overflow-x:auto}.mathline{overflow-x:auto;padding:12px 6px;text-align:center;font-size:19px;line-height:1.7}.major-math{font-size:23px}.condition{font-size:14px;color:#526b83;margin:12px 0}.steps{padding-left:26px}.steps li{padding:6px 0;line-height:2}.steps li p{margin:0}.problem,.solution{padding:14px 18px;border-radius:11px;margin:10px 0}.problem{background:#f8fbff;border:1px solid #dce7f4}.solution{background:#f3faf7;border-left:4px solid #5f9f85}.problem p,.solution p{margin:6px 0}.muted{color:#61738a}.code-head{display:flex;align-items:center;justify-content:space-between;background:#253951;color:white;padding:8px 14px;border-radius:10px 10px 0 0;font-size:13px}pre{margin:0 0 18px;background:#122136;color:#edf5ff;border-radius:0 0 10px 10px;padding:18px;overflow:auto;font:14px/1.7 Consolas,"Malgun Gothic",monospace;white-space:pre}button{border:0;border-radius:8px;padding:9px 14px;background:#2866a7;color:white;font-weight:700;cursor:pointer}button:hover{filter:brightness(.9)}.code-head button{background:#d9e9ff;color:#1b426e}.outline{background:#e9f1fc;color:#255b95}.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}input,select{border:1px solid #b8cde2;border-radius:8px;padding:11px 13px;font:inherit;min-width:180px}input{flex:1}.count{color:#285c94;font-weight:700}.status{color:#59758f;font-size:13px}.mathline mjx-container{max-width:none!important;overflow:visible!important;margin:.35em 0!important}.entry[hidden]{display:none!important}footer{text-align:center;color:#65768a;padding:30px}@media(max-width:650px){.mathline{font-size:16px}.major-math{font-size:19px}.steps{padding-left:20px}}@media print{header{background:white;color:#111}.intro .tools,.copy{display:none}.entry{box-shadow:none;break-inside:auto}pre{white-space:pre-wrap;color:#111;background:#f3f5f7}}</style><script>window.MathJax={tex:{displayMath:[['\\[','\\]']],inlineMath:[['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},startup:{ready:()=>{MathJax.startup.defaultReady();MathJax.startup.promise.then(()=>{document.getElementById('math-status').textContent='수식 조판 완료';});}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head><body><header><h1>지수·로그·삼각·역삼각함수의 미분법과 적분법</h1><p>37개 공식 · 증명 · 기본 예제 · 실생활 활용 · OOP 파이썬 코드 · 상세 해설</p></header><main><section class="intro"><h2>학습 안내</h2><p>모든 핵심 공식과 증명 과정, 예제 풀이, 실생활 계산 결과를 <b>명시적인 LaTeX 수식</b>으로 조판했습니다. 자동 문장 변환을 사용하지 않아 첨자 오류를 방지합니다. 각도는 라디안이며 부정적분에는 적분상수 C를 붙입니다.</p><div class="tools"><input id="search" placeholder="함수·공식·실생활 주제 검색"><select id="category"><option value="">전체 영역</option><option>지수·로그 미분</option><option>삼각함수 미분</option><option>역삼각함수 미분</option><option>지수·로그 적분</option><option>삼각함수 적분</option><option>역삼각함수 적분</option></select><button onclick="window.print()">인쇄 / PDF 저장</button></div><p class="count" id="count"></p><p class="status" id="math-status">MathJax 수식 불러오는 중 · 최초 실행 시 인터넷 연결 필요</p></section><article class="entry" data-cat="지수·로그 미분" data-search="{&quot;cat&quot;: &quot;지수·로그 미분&quot;, &quot;name&quot;: &quot;지수함수 eˣ&quot;, &quot;formula&quot;: &quot;(e^x)′ = e^x&quot;, &quot;domain&quot;: &quot;x∈ℝ&quot;, &quot;proof&quot;: [&quot;도함수 정의에 따라 (e^x)′ = lim(h→0) (e^(x+h)−e^x)/h.&quot;, &quot;e^x를 묶으면 e^x lim(h→0)(e^h−1)/h.&quot;, &quot;자연상수 e의 정의에서 극한값은 1이므로 결과는 e^x.&quot;], &quot;example&quot;: &quot;y=3e^(2x)의 도함수&quot;, &quot;solution&quot;: &quot;연쇄법칙: y′=3e^(2x)·2=6e^(2x).&quot;, &quot;application&quot;: &quot;세균 수 n(t)=200e^(0.3t)일 때 t=2의 증가율&quot;, &quot;appsolution&quot;: &quot;n′(t)=60e^(0.3t); n′(2)=60e^0.6≈109.33 개/시간. 초기 증가율과 달리 시간에 따라 커진다.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 미분</span><span>공식 01 / 37</span></div>
+ <h2>지수함수 eˣ</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}e^x=e^x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>도함수 정의에 따라 (e^x)′ = lim(h→0) (e^(x+h)−e^x)/h.</p></li><li><p>e^x를 묶으면 e^x lim(h→0)(e^h−1)/h.</p></li><li><p>자연상수 e의 정의에서 극한값은 1이므로 결과는 e^x.</p></li></ol><div class="mathline">\[\frac{d}{dx}e^x=\lim_{h\to0}\frac{e^{x+h}-e^x}{h}=e^x\lim_{h\to0}\frac{e^h-1}{h}=e^x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=3e^(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>연쇄법칙: y′=3e^(2x)·2=6e^(2x).</p><div class="mathline">\[y=3e^{2x}\quad\Longrightarrow\quad y^{\prime}=6e^{2x}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>세균 수 N(t)=200e^(0.3t)일 때 t=2의 증가율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>N′(t)=60e^(0.3t); N′(2)=60e^0.6≈109.33 개/시간. 초기 증가율과 달리 시간에 따라 커진다.</p><div class="mathline">\[N(t)=200e^{0.3t},\quad N^{\prime}(t)=60e^{0.3t},\quad N^{\prime}(2)\approx109.33\ \text{개/시간}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="0">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형01:
+    &quot;&quot;&quot;1번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 1
+        self.문제이름 = &quot;실생활 활용 문제 1&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 200*exp(Rational(3,10)*t)
+        print(&quot;모형: 세균 수의 순간 증가율&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, t)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 2
+        value = sp.simplify(rate.subs(t, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형01()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형01는 1번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형01()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 200*exp(Rational(3,10)*t)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 증가율의 단위는 개/시간입니다. 도함수가 양수이면 세균 수가 증가하고, 시간이 지날수록 증가 속도도 커집니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="0">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 미분" data-search="{&quot;cat&quot;: &quot;지수·로그 미분&quot;, &quot;name&quot;: &quot;일반 지수함수 aˣ&quot;, &quot;formula&quot;: &quot;(a^x)′ = a^x ln a&quot;, &quot;domain&quot;: &quot;a&gt;0, a≠1&quot;, &quot;proof&quot;: [&quot;a^x=e^(x ln a)로 바꾼다.&quot;, &quot;연쇄법칙으로 미분하면 e^(x ln a)·ln a.&quot;, &quot;e^(x ln a)=a^x이므로 공식이 성립한다.&quot;], &quot;example&quot;: &quot;y=2^(3x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=2^(3x)·3ln2.&quot;, &quot;application&quot;: &quot;방사성 물질 m(t)=80(1/2)^(t/5)의 t=5 변화율&quot;, &quot;appsolution&quot;: &quot;m′(t)=80(1/2)^(t/5)·ln(1/2)/5; m′(5)=−8ln2≈−5.55 g/년.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 미분</span><span>공식 02 / 37</span></div>
+ <h2>일반 지수함수 aˣ</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}a^x=a^x\ln a\]</div></div>
+ <div class="condition"><b>정의역·조건</b> a&gt;0, a≠1</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>a^x=e^(x ln a)로 바꾼다.</p></li><li><p>연쇄법칙으로 미분하면 e^(x ln a)·ln a.</p></li><li><p>e^(x ln a)=a^x이므로 공식이 성립한다.</p></li></ol><div class="mathline">\[a^x=e^{x\ln a}\quad\Longrightarrow\quad \frac{d}{dx}a^x=a^x\ln a\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=2^(3x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=2^(3x)·3ln2.</p><div class="mathline">\[y=2^{3x}\quad\Longrightarrow\quad y^{\prime}=3\ln2\cdot2^{3x}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>방사성 물질 M(t)=80(1/2)^(t/5)의 t=5 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>M′(t)=80(1/2)^(t/5)·ln(1/2)/5; M′(5)=−8ln2≈−5.55 g/년.</p><div class="mathline">\[M(t)=80\left(\frac12\right)^{t/5},\quad M^{\prime}(5)=-8\ln2\approx-5.55\ \text{g/년}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="1">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형02:
+    &quot;&quot;&quot;2번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 2
+        self.문제이름 = &quot;실생활 활용 문제 2&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 80*Rational(1,2)**(t/5)
+        print(&quot;모형: 방사성 물질의 감소율&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, t)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 5
+        value = sp.simplify(rate.subs(t, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형02()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형02는 2번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형02()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 80*Rational(1,2)**(t/5)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 감소율은 음수이며 단위는 g/년입니다. 반감기 5년이므로 t=5에서 질량이 절반이 됩니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="1">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 미분" data-search="{&quot;cat&quot;: &quot;지수·로그 미분&quot;, &quot;name&quot;: &quot;자연로그 ln x&quot;, &quot;formula&quot;: &quot;(ln x)′ = 1/x&quot;, &quot;domain&quot;: &quot;x&gt;0&quot;, &quot;proof&quot;: [&quot;y=ln x라 놓으면 x=e^y이다.&quot;, &quot;양변을 x에 관하여 미분하면 1=e^y y′.&quot;, &quot;e^y=x이므로 y′=1/x.&quot;], &quot;example&quot;: &quot;y=ln(3x²+1)의 도함수&quot;, &quot;solution&quot;: &quot;y′=6x/(3x²+1); 내부 함수의 미분을 곱한다.&quot;, &quot;application&quot;: &quot;소리의 세기 l(i)=10log₁₀(i/i₀)의 i에 대한 민감도&quot;, &quot;appsolution&quot;: &quot;l′(i)=10/(i ln10), i&gt;0. 세기가 클수록 동일한 절대 증가량의 데시벨 변화는 작다.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 미분</span><span>공식 03 / 37</span></div>
+ <h2>자연로그 ln x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\ln x=\frac1x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x&gt;0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=ln x라 놓으면 x=e^y이다.</p></li><li><p>양변을 x에 관하여 미분하면 1=e^y y′.</p></li><li><p>e^y=x이므로 y′=1/x.</p></li></ol><div class="mathline">\[y=\ln x\iff x=e^y\quad\Longrightarrow\quad 1=e^y y^{\prime}=xy^{\prime}\quad\Longrightarrow\quad y^{\prime}=\frac1x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=ln(3x²+1)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=6x/(3x²+1); 내부 함수의 미분을 곱한다.</p><div class="mathline">\[y=\ln(3x^2+1)\quad\Longrightarrow\quad y^{\prime}=\frac{6x}{3x^2+1}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>소리의 세기 L(I)=10log₁₀(I/I₀)의 I에 대한 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>L′(I)=10/(I ln10), I&gt;0. 세기가 클수록 동일한 절대 증가량의 데시벨 변화는 작다.</p><div class="mathline">\[L(I)=10\log_{10}\frac{I}{I_0},\quad L^{\prime}(I)=\frac{10}{I\ln10}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="2">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형03:
+    &quot;&quot;&quot;3번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 3
+        self.문제이름 = &quot;실생활 활용 문제 3&quot;
+
+    def 계산하고_출력하기(self):
+        I = sp.symbols(&quot;I&quot;, real=True)
+        I0 = sp.symbols(&quot;I0&quot;, positive=True)
+        model = 10*log(I/I0,10)
+        print(&quot;모형: 소리 세기의 데시벨 민감도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, I)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 100*I0
+        value = sp.simplify(rate.subs(I, point))
+        value = value.subs(I0, 1)  # 기준 세기를 1로 정규화
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형03()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형03는 3번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형03()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 I이고, 모델 식은 10*log(I/I0,10)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 기준 세기 I₀는 양수인 상수입니다. 도함수는 I에 대한 데시벨 변화율로, 절대 세기가 커질수록 작아집니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="2">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 미분" data-search="{&quot;cat&quot;: &quot;지수·로그 미분&quot;, &quot;name&quot;: &quot;일반 로그 logₐx&quot;, &quot;formula&quot;: &quot;(log_a x)′ = 1/(x ln a)&quot;, &quot;domain&quot;: &quot;x&gt;0, a&gt;0, a≠1&quot;, &quot;proof&quot;: [&quot;밑변환 공식 log_a x=ln x/ln a를 쓴다.&quot;, &quot;ln a는 x와 무관한 상수이다.&quot;, &quot;따라서 도함수는 1/(x ln a)이다.&quot;], &quot;example&quot;: &quot;y=log₂(5x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=5/(5x ln2)=1/(x ln2), x&gt;0.&quot;, &quot;application&quot;: &quot;정보량 h(p)=−log₂p의 p에 대한 변화율&quot;, &quot;appsolution&quot;: &quot;h′(p)=−1/(p ln2), 0&lt;p≤1. 희귀 사건일수록 확률 변화에 민감하다.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 미분</span><span>공식 04 / 37</span></div>
+ <h2>일반 로그 logₐx</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\log_a x=\frac1{x\ln a}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x&gt;0, a&gt;0, a≠1</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>밑변환 공식 log_a x=ln x/ln a를 쓴다.</p></li><li><p>ln a는 x와 무관한 상수이다.</p></li><li><p>따라서 도함수는 1/(x ln a)이다.</p></li></ol><div class="mathline">\[\log_a x=\frac{\ln x}{\ln a}\quad\Longrightarrow\quad\frac{d}{dx}\log_a x=\frac1{x\ln a}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=log₂(5x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=5/(5x ln2)=1/(x ln2), x&gt;0.</p><div class="mathline">\[y=\log_2(5x)\quad\Longrightarrow\quad y^{\prime}=\frac1{x\ln2}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>정보량 H(p)=−log₂p의 p에 대한 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>H′(p)=−1/(p ln2), 0&lt;p≤1. 희귀 사건일수록 확률 변화에 민감하다.</p><div class="mathline">\[H(p)=-\log_2p,\quad H^{\prime}(p)=-\frac1{p\ln2}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="3">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형04:
+    &quot;&quot;&quot;4번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 4
+        self.문제이름 = &quot;실생활 활용 문제 4&quot;
+
+    def 계산하고_출력하기(self):
+        p = sp.symbols(&quot;p&quot;, real=True)
+        model = -log(p,2)
+        print(&quot;모형: 사건 확률에 따른 정보량 민감도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, p)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = Rational(1,4)
+        value = sp.simplify(rate.subs(p, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형04()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형04는 4번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형04()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 p이고, 모델 식은 -log(p,2)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 확률 p는 0보다 크고 1 이하입니다. 음의 도함수는 사건이 흔해질수록 정보량이 감소함을 뜻합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="3">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 미분" data-search="{&quot;cat&quot;: &quot;지수·로그 미분&quot;, &quot;name&quot;: &quot;로그 절댓값 ln|x|&quot;, &quot;formula&quot;: &quot;(ln|x|)′ = 1/x&quot;, &quot;domain&quot;: &quot;x≠0&quot;, &quot;proof&quot;: [&quot;x&gt;0이면 ln|x|=ln x이므로 도함수는 1/x.&quot;, &quot;x&lt;0이면 ln|x|=ln(−x)이다.&quot;, &quot;연쇄법칙으로 (1/(−x))·(−1)=1/x이다.&quot;], &quot;example&quot;: &quot;y=ln|x²−4|의 도함수&quot;, &quot;solution&quot;: &quot;y′=2x/(x²−4), x≠±2.&quot;, &quot;application&quot;: &quot;거리 r에 대한 u(r)=k ln r의 기울기&quot;, &quot;appsolution&quot;: &quot;u′(r)=k/r (r&gt;0). 거리가 두 배가 되면 기울기의 크기는 절반이다.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 미분</span><span>공식 05 / 37</span></div>
+ <h2>로그 절댓값 ln|x|</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\ln|x|=\frac1x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>x&gt;0이면 ln|x|=ln x이므로 도함수는 1/x.</p></li><li><p>x&lt;0이면 ln|x|=ln(−x)이다.</p></li><li><p>연쇄법칙으로 (1/(−x))·(−1)=1/x이다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\ln|x|=\begin{cases}\frac{d}{dx}\ln x=\frac1x&amp;(x&gt;0)\\\frac{d}{dx}\ln(-x)=\frac1{-x}(-1)=\frac1x&amp;(x&lt;0)\end{cases}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=ln|x²−4|의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=2x/(x²−4), x≠±2.</p><div class="mathline">\[y=\ln|x^2-4|\quad\Longrightarrow\quad y^{\prime}=\frac{2x}{x^2-4}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>거리 r에 대한 U(r)=k ln r의 기울기</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>U′(r)=k/r (r&gt;0). 거리가 두 배가 되면 기울기의 크기는 절반이다.</p><div class="mathline">\[U(r)=k\ln r,\quad U^{\prime}(r)=\frac{k}{r}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="4">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형05:
+    &quot;&quot;&quot;5번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 5
+        self.문제이름 = &quot;실생활 활용 문제 5&quot;
+
+    def 계산하고_출력하기(self):
+        r = sp.symbols(&quot;r&quot;, real=True)
+        k = sp.symbols(&quot;k&quot;, positive=True)
+        model = k*log(r)
+        print(&quot;모형: 거리와 로그형 위치 에너지의 기울기&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, r)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 2
+        value = sp.simplify(rate.subs(r, point))
+        value = value.subs(k, 1)  # 예시 계수 k=1
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형05()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형05는 5번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형05()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 r이고, 모델 식은 k*log(r)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 상수 k는 에너지 모형의 계수입니다. 거리를 늘릴 때 기울기가 1/r에 비례해 감소합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="4">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 미분" data-search="{&quot;cat&quot;: &quot;지수·로그 미분&quot;, &quot;name&quot;: &quot;로그미분법 xˣ&quot;, &quot;formula&quot;: &quot;(x^x)′ = x^x(ln x+1)&quot;, &quot;domain&quot;: &quot;x&gt;0&quot;, &quot;proof&quot;: [&quot;y=x^x&gt;0로 놓고 ln y=x ln x를 취한다.&quot;, &quot;양변을 미분하면 y′/y=ln x+1이다.&quot;, &quot;y=x^x를 대입해 y′=x^x(ln x+1)을 얻는다.&quot;], &quot;example&quot;: &quot;y=x^(2x)의 도함수&quot;, &quot;solution&quot;: &quot;ln y=2x ln x이므로 y′=x^(2x)(2ln x+2).&quot;, &quot;application&quot;: &quot;성장 모형 f(t)=t^t (t&gt;0)의 t=2 순간 변화율&quot;, &quot;appsolution&quot;: &quot;f′(2)=4(ln2+1)≈6.77 단위/시간.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 미분</span><span>공식 06 / 37</span></div>
+ <h2>로그미분법 xˣ</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}x^x=x^x(\ln x+1)\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x&gt;0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=x^x&gt;0로 놓고 ln y=x ln x를 취한다.</p></li><li><p>양변을 미분하면 y′/y=ln x+1이다.</p></li><li><p>y=x^x를 대입해 y′=x^x(ln x+1)을 얻는다.</p></li></ol><div class="mathline">\[\ln y=x\ln x\quad\Longrightarrow\quad \frac{y^{\prime}}y=\ln x+1\quad\Longrightarrow\quad y^{\prime}=x^x(\ln x+1)\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=x^(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>ln y=2x ln x이므로 y′=x^(2x)(2ln x+2).</p><div class="mathline">\[y=x^{2x}\quad\Longrightarrow\quad y^{\prime}=x^{2x}(2\ln x+2)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>성장 모형 F(t)=t^t (t&gt;0)의 t=2 순간 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>F′(2)=4(ln2+1)≈6.77 단위/시간.</p><div class="mathline">\[F(t)=t^t,\quad F^{\prime}(2)=4(\ln2+1)\approx6.77\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="5">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형06:
+    &quot;&quot;&quot;6번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 6
+        self.문제이름 = &quot;실생활 활용 문제 6&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = t**t
+        print(&quot;모형: 시간 의존 거듭제곱 성장률&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, t)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 2
+        value = sp.simplify(rate.subs(t, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형06()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형06는 6번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형06()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 t**t입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 실수에서 t^t를 다루려면 t&gt;0이어야 합니다. 로그미분법을 쓰면 밑과 지수가 동시에 변하는 상황을 해석할 수 있습니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="5">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 미분" data-search="{&quot;cat&quot;: &quot;삼각함수 미분&quot;, &quot;name&quot;: &quot;사인 sin x&quot;, &quot;formula&quot;: &quot;(sin x)′ = cos x&quot;, &quot;domain&quot;: &quot;x는 라디안&quot;, &quot;proof&quot;: [&quot;덧셈정리 sin(x+h)=sin x cos h+cos x sin h를 쓴다.&quot;, &quot;차분몫을 sin x(cos h−1)/h+cos x(sin h)/h로 정리한다.&quot;, &quot;라디안에서 두 극한은 각각 0,1이므로 cos x이다.&quot;], &quot;example&quot;: &quot;y=sin(3x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=3cos(3x).&quot;, &quot;application&quot;: &quot;진동 위치 s(t)=2sin(πt)의 t=0.5 속도&quot;, &quot;appsolution&quot;: &quot;v(t)=2πcos(πt); v(0.5)=0 m/s. 극점에서 순간 속도가 0이다.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 미분</span><span>공식 07 / 37</span></div>
+ <h2>사인 sin x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\sin x=\cos x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x는 라디안</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>덧셈정리 sin(x+h)=sin x cos h+cos x sin h를 쓴다.</p></li><li><p>차분몫을 sin x(cos h−1)/h+cos x(sin h)/h로 정리한다.</p></li><li><p>라디안에서 두 극한은 각각 0,1이므로 cos x이다.</p></li></ol><div class="mathline">\[\frac{\sin(x+h)-\sin x}{h}=\sin x\frac{\cos h-1}{h}+\cos x\frac{\sin h}{h}\to\cos x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=sin(3x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=3cos(3x).</p><div class="mathline">\[y=\sin(3x)\quad\Longrightarrow\quad y^{\prime}=3\cos(3x)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>진동 위치 s(t)=2sin(πt)의 t=0.5 속도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>v(t)=2πcos(πt); v(0.5)=0 m/s. 극점에서 순간 속도가 0이다.</p><div class="mathline">\[s(t)=2\sin(\pi t),\quad v(0.5)=2\pi\cos\frac\pi2=0\ \text{m/s}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="6">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형07:
+    &quot;&quot;&quot;7번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 7
+        self.문제이름 = &quot;실생활 활용 문제 7&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 2*sin(pi*t)
+        print(&quot;모형: 진동 위치에서 순간 속도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, t)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = Rational(1,2)
+        value = sp.simplify(rate.subs(t, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형07()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형07는 7번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형07()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 2*sin(pi*t)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 위치의 시간 미분이 속도입니다. 진동의 꼭대기에서는 위치가 최대지만 순간 속도는 0입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="6">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 미분" data-search="{&quot;cat&quot;: &quot;삼각함수 미분&quot;, &quot;name&quot;: &quot;코사인 cos x&quot;, &quot;formula&quot;: &quot;(cos x)′ = −sin x&quot;, &quot;domain&quot;: &quot;x는 라디안&quot;, &quot;proof&quot;: [&quot;cos(x+h)=cos x cos h−sin x sin h를 적용한다.&quot;, &quot;차분몫은 cos x(cos h−1)/h−sin x(sin h)/h.&quot;, &quot;표준 극한으로 첫 항은 0, 둘째 항은 −sin x이다.&quot;], &quot;example&quot;: &quot;y=4cos(2x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=−8sin(2x).&quot;, &quot;application&quot;: &quot;교류 전압 v(t)=220cos(100πt)의 t=0.005 변화율&quot;, &quot;appsolution&quot;: &quot;v′(t)=−22000πsin(100πt); t=0.005에서 −22000π v/s.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 미분</span><span>공식 08 / 37</span></div>
+ <h2>코사인 cos x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\cos x=-\sin x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x는 라디안</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>cos(x+h)=cos x cos h−sin x sin h를 적용한다.</p></li><li><p>차분몫은 cos x(cos h−1)/h−sin x(sin h)/h.</p></li><li><p>표준 극한으로 첫 항은 0, 둘째 항은 −sin x이다.</p></li></ol><div class="mathline">\[\frac{\cos(x+h)-\cos x}{h}=\cos x\frac{\cos h-1}{h}-\sin x\frac{\sin h}{h}\to-\sin x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=4cos(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=−8sin(2x).</p><div class="mathline">\[y=4\cos(2x)\quad\Longrightarrow\quad y^{\prime}=-8\sin(2x)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>교류 전압 V(t)=220cos(100πt)의 t=0.005 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>V′(t)=−22000πsin(100πt); t=0.005에서 −22000π V/s.</p><div class="mathline">\[V(t)=220\cos(100\pi t),\quad V^{\prime}(0.005)=-22000\pi\ \text{V/s}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="7">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형08:
+    &quot;&quot;&quot;8번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 8
+        self.문제이름 = &quot;실생활 활용 문제 8&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 220*cos(100*pi*t)
+        print(&quot;모형: 교류 전압의 순간 변화율&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, t)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = Rational(1,200)
+        value = sp.simplify(rate.subs(t, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형08()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형08는 8번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형08()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 220*cos(100*pi*t)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 전압의 순간 변화율은 V/s입니다. 사인 항의 부호가 전압이 증가하는지 감소하는지 나타냅니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="7">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 미분" data-search="{&quot;cat&quot;: &quot;삼각함수 미분&quot;, &quot;name&quot;: &quot;탄젠트 tan x&quot;, &quot;formula&quot;: &quot;(tan x)′ = sec²x = 1+tan²x&quot;, &quot;domain&quot;: &quot;cos x≠0&quot;, &quot;proof&quot;: [&quot;tan x=sin x/cos x로 표현한다.&quot;, &quot;몫의 미분법: (cos²x+sin²x)/cos²x.&quot;, &quot;sin²x+cos²x=1이므로 sec²x이다.&quot;], &quot;example&quot;: &quot;y=tan(x²)의 도함수&quot;, &quot;solution&quot;: &quot;y′=2x sec²(x²), cos(x²)≠0.&quot;, &quot;application&quot;: &quot;관측각 θ에서 경사 m(θ)=tanθ의 민감도&quot;, &quot;appsolution&quot;: &quot;dm/dθ=sec²θ. θ=π/4에서 2 (라디안⁻¹).&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 미분</span><span>공식 09 / 37</span></div>
+ <h2>탄젠트 tan x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\tan x=\sec^2x=1+\tan^2x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> cos x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>tan x=sin x/cos x로 표현한다.</p></li><li><p>몫의 미분법: (cos²x+sin²x)/cos²x.</p></li><li><p>sin²x+cos²x=1이므로 sec²x이다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\tan x=\frac{\cos^2x+\sin^2x}{\cos^2x}=\sec^2x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=tan(x²)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=2x sec²(x²), cos(x²)≠0.</p><div class="mathline">\[y=\tan(x^2)\quad\Longrightarrow\quad y^{\prime}=2x\sec^2(x^2)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>관측각 θ에서 경사 m(θ)=tanθ의 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>dm/dθ=sec²θ. θ=π/4에서 2 (라디안⁻¹).</p><div class="mathline">\[m(\theta)=\tan\theta,\quad m^{\prime}(\pi/4)=2\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="8">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형09:
+    &quot;&quot;&quot;9번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 9
+        self.문제이름 = &quot;실생활 활용 문제 9&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = tan(theta)
+        print(&quot;모형: 관측각과 경사의 민감도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, theta)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = pi/4
+        value = sp.simplify(rate.subs(theta, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형09()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형09는 9번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형09()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 tan(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 경사 tan θ의 변화율은 각도가 π/2에 가까워질수록 커집니다. 각도는 반드시 라디안으로 계산합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="8">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 미분" data-search="{&quot;cat&quot;: &quot;삼각함수 미분&quot;, &quot;name&quot;: &quot;코탄젠트 cot x&quot;, &quot;formula&quot;: &quot;(cot x)′ = −csc²x&quot;, &quot;domain&quot;: &quot;sin x≠0&quot;, &quot;proof&quot;: [&quot;cot x=cos x/sin x를 사용한다.&quot;, &quot;몫의 미분으로 (−sin²x−cos²x)/sin²x.&quot;, &quot;항등식을 적용하면 −1/sin²x이다.&quot;], &quot;example&quot;: &quot;y=cot(5x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=−5csc²(5x).&quot;, &quot;application&quot;: &quot;그림자 비율 r(θ)=cotθ의 각도 민감도&quot;, &quot;appsolution&quot;: &quot;r′(θ)=−csc²θ. θ=π/4에서 −2 (라디안⁻¹).&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 미분</span><span>공식 10 / 37</span></div>
+ <h2>코탄젠트 cot x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\cot x=-\csc^2x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> sin x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>cot x=cos x/sin x를 사용한다.</p></li><li><p>몫의 미분으로 (−sin²x−cos²x)/sin²x.</p></li><li><p>항등식을 적용하면 −1/sin²x이다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\cot x=\frac{-\sin^2x-\cos^2x}{\sin^2x}=-\csc^2x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=cot(5x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=−5csc²(5x).</p><div class="mathline">\[y=\cot(5x)\quad\Longrightarrow\quad y^{\prime}=-5\csc^2(5x)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>그림자 비율 R(θ)=cotθ의 각도 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>R′(θ)=−csc²θ. θ=π/4에서 −2 (라디안⁻¹).</p><div class="mathline">\[R(\theta)=\cot\theta,\quad R^{\prime}(\pi/4)=-2\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="9">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형10:
+    &quot;&quot;&quot;10번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 10
+        self.문제이름 = &quot;실생활 활용 문제 10&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = cot(theta)
+        print(&quot;모형: 그림자 길이 비율의 변화&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, theta)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = pi/4
+        value = sp.simplify(rate.subs(theta, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형10()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형10는 10번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형10()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 cot(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 그림자 비율 cot θ는 태양 고도가 높아질수록 감소합니다. θ=0에서는 정의되지 않습니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="9">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 미분" data-search="{&quot;cat&quot;: &quot;삼각함수 미분&quot;, &quot;name&quot;: &quot;시컨트 sec x&quot;, &quot;formula&quot;: &quot;(sec x)′ = sec x tan x&quot;, &quot;domain&quot;: &quot;cos x≠0&quot;, &quot;proof&quot;: [&quot;sec x=(cos x)^(−1)로 쓴다.&quot;, &quot;연쇄법칙으로 −(cos x)^(−2)(−sin x).&quot;, &quot;sin x/cos²x=sec x tan x이다.&quot;], &quot;example&quot;: &quot;y=sec(2x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=2sec(2x)tan(2x).&quot;, &quot;application&quot;: &quot;빛 경로 배율 s(θ)=secθ의 각도 민감도&quot;, &quot;appsolution&quot;: &quot;s′(θ)=secθtanθ. θ=π/3에서 2√3 (라디안⁻¹).&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 미분</span><span>공식 11 / 37</span></div>
+ <h2>시컨트 sec x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\sec x=\sec x\tan x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> cos x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>sec x=(cos x)^(−1)로 쓴다.</p></li><li><p>연쇄법칙으로 −(cos x)^(−2)(−sin x).</p></li><li><p>sin x/cos²x=sec x tan x이다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(\cos x)^{-1}=-(\cos x)^{-2}(-\sin x)=\sec x\tan x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=sec(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=2sec(2x)tan(2x).</p><div class="mathline">\[y=\sec(2x)\quad\Longrightarrow\quad y^{\prime}=2\sec(2x)\tan(2x)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>빛 경로 배율 S(θ)=secθ의 각도 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>S′(θ)=secθtanθ. θ=π/3에서 2√3 (라디안⁻¹).</p><div class="mathline">\[S(\theta)=\sec\theta,\quad S^{\prime}(\pi/3)=2\sqrt3\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="10">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형11:
+    &quot;&quot;&quot;11번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 11
+        self.문제이름 = &quot;실생활 활용 문제 11&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = sec(theta)
+        print(&quot;모형: 빛 경로 길이 배율의 변화&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, theta)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = pi/3
+        value = sp.simplify(rate.subs(theta, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형11()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형11는 11번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형11()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 sec(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 빛의 비스듬한 경로 길이는 sec θ에 비례합니다. 수직 입사에 가까우면 민감도가 작습니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="10">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 미분" data-search="{&quot;cat&quot;: &quot;삼각함수 미분&quot;, &quot;name&quot;: &quot;코시컨트 csc x&quot;, &quot;formula&quot;: &quot;(csc x)′ = −csc x cot x&quot;, &quot;domain&quot;: &quot;sin x≠0&quot;, &quot;proof&quot;: [&quot;csc x=(sin x)^(−1)로 쓴다.&quot;, &quot;연쇄법칙으로 −(sin x)^(−2)cos x.&quot;, &quot;−cos x/sin²x=−csc x cot x이다.&quot;], &quot;example&quot;: &quot;y=csc(3x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=−3csc(3x)cot(3x).&quot;, &quot;application&quot;: &quot;측정 보정 c(θ)=cscθ의 각도 민감도&quot;, &quot;appsolution&quot;: &quot;c′(θ)=−cscθcotθ. θ=π/6에서 −2√3 (라디안⁻¹).&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 미분</span><span>공식 12 / 37</span></div>
+ <h2>코시컨트 csc x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\csc x=-\csc x\cot x\]</div></div>
+ <div class="condition"><b>정의역·조건</b> sin x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>csc x=(sin x)^(−1)로 쓴다.</p></li><li><p>연쇄법칙으로 −(sin x)^(−2)cos x.</p></li><li><p>−cos x/sin²x=−csc x cot x이다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(\sin x)^{-1}=-(\sin x)^{-2}\cos x=-\csc x\cot x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=csc(3x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=−3csc(3x)cot(3x).</p><div class="mathline">\[y=\csc(3x)\quad\Longrightarrow\quad y^{\prime}=-3\csc(3x)\cot(3x)\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>측정 보정 C(θ)=cscθ의 각도 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>C′(θ)=−cscθcotθ. θ=π/6에서 −2√3 (라디안⁻¹).</p><div class="mathline">\[C(\theta)=\csc\theta,\quad C^{\prime}(\pi/6)=-2\sqrt3\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="11">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형12:
+    &quot;&quot;&quot;12번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 12
+        self.문제이름 = &quot;실생활 활용 문제 12&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = csc(theta)
+        print(&quot;모형: 측정 보정 계수의 변화&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, theta)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = pi/6
+        value = sp.simplify(rate.subs(theta, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형12()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형12는 12번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형12()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 csc(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 보정 계수 csc θ는 θ가 0에 가까우면 급격히 커집니다. 따라서 작은 각도 측정은 오차에 민감합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="11">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 미분" data-search="{&quot;cat&quot;: &quot;역삼각함수 미분&quot;, &quot;name&quot;: &quot;아크사인 arcsin x&quot;, &quot;formula&quot;: &quot;(arcsin x)′ = 1/√(1−x²)&quot;, &quot;domain&quot;: &quot;−1&lt;x&lt;1; 값의 범위 [−π/2,π/2]&quot;, &quot;proof&quot;: [&quot;y=arcsin x라 놓으면 sin y=x이다.&quot;, &quot;cos y·y′=1이므로 y′=1/cos y.&quot;, &quot;주값 범위에서 cos y≥0이므로 cos y=√(1−x²).&quot;], &quot;example&quot;: &quot;y=arcsin(2x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=2/√(1−4x²), |x|&lt;1/2.&quot;, &quot;application&quot;: &quot;높이 h에서 θ(h)=arcsin(h/10)의 h=5 각도 변화율&quot;, &quot;appsolution&quot;: &quot;θ′(h)=1/[10√(1−(h/10)²)]; θ′(5)=1/(5√3)≈0.1155 rad/m.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 미분</span><span>공식 13 / 37</span></div>
+ <h2>아크사인 arcsin x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\arcsin x=\frac1{\sqrt{1-x^2}}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> −1&lt;x&lt;1; 값의 범위 [−π/2,π/2]</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=arcsin x라 놓으면 sin y=x이다.</p></li><li><p>cos y·y′=1이므로 y′=1/cos y.</p></li><li><p>주값 범위에서 cos y≥0이므로 cos y=√(1−x²).</p></li></ol><div class="mathline">\[\sin y=x\quad\Longrightarrow\quad\cos y\,y^{\prime}=1\quad\Longrightarrow\quad y^{\prime}=\frac1{\sqrt{1-x^2}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=arcsin(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=2/√(1−4x²), |x|&lt;1/2.</p><div class="mathline">\[y=\arcsin(2x)\quad\Longrightarrow\quad y^{\prime}=\frac2{\sqrt{1-4x^2}}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>높이 h에서 θ(h)=arcsin(h/10)의 h=5 각도 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>θ′(h)=1/[10√(1−(h/10)²)]; θ′(5)=1/(5√3)≈0.1155 rad/m.</p><div class="mathline">\[\theta(h)=\arcsin\frac h{10},\quad\theta^{\prime}(5)=\frac1{5\sqrt3}\approx0.1155\ \text{rad/m}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="12">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형13:
+    &quot;&quot;&quot;13번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 13
+        self.문제이름 = &quot;실생활 활용 문제 13&quot;
+
+    def 계산하고_출력하기(self):
+        h = sp.symbols(&quot;h&quot;, real=True)
+        model = asin(h/10)
+        print(&quot;모형: 높이에 따른 올려다보는 각도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, h)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 5
+        value = sp.simplify(rate.subs(h, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형13()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형13는 13번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형13()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 h이고, 모델 식은 asin(h/10)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 높이 h는 -10과 10 사이에서 각도로 변환됩니다. 끝점에 가까울수록 각도 변화율이 급격히 증가합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="12">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 미분" data-search="{&quot;cat&quot;: &quot;역삼각함수 미분&quot;, &quot;name&quot;: &quot;아크코사인 arccos x&quot;, &quot;formula&quot;: &quot;(arccos x)′ = −1/√(1−x²)&quot;, &quot;domain&quot;: &quot;−1&lt;x&lt;1; 값의 범위 [0,π]&quot;, &quot;proof&quot;: [&quot;y=arccos x라 두면 cos y=x이다.&quot;, &quot;−sin y·y′=1에서 y′=−1/sin y.&quot;, &quot;주값 범위에서 sin y≥0이므로 sin y=√(1−x²).&quot;], &quot;example&quot;: &quot;y=arccos(x/2)의 도함수&quot;, &quot;solution&quot;: &quot;y′=−1/[2√(1−x²/4)], |x|&lt;2.&quot;, &quot;application&quot;: &quot;방향각 θ(c)=arccos c에서 c=0.6의 변화율&quot;, &quot;appsolution&quot;: &quot;θ′(0.6)=−1/√(1−0.36)=−1.25 rad/단위.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 미분</span><span>공식 14 / 37</span></div>
+ <h2>아크코사인 arccos x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\arccos x=-\frac1{\sqrt{1-x^2}}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> −1&lt;x&lt;1; 값의 범위 [0,π]</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=arccos x라 두면 cos y=x이다.</p></li><li><p>−sin y·y′=1에서 y′=−1/sin y.</p></li><li><p>주값 범위에서 sin y≥0이므로 sin y=√(1−x²).</p></li></ol><div class="mathline">\[\cos y=x\quad\Longrightarrow\quad-\sin y\,y^{\prime}=1\quad\Longrightarrow\quad y^{\prime}=-\frac1{\sqrt{1-x^2}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=arccos(x/2)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=−1/[2√(1−x²/4)], |x|&lt;2.</p><div class="mathline">\[y=\arccos(x/2)\quad\Longrightarrow\quad y^{\prime}=-\frac1{2\sqrt{1-x^2/4}}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>방향각 θ(c)=arccos c에서 c=0.6의 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>θ′(0.6)=−1/√(1−0.36)=−1.25 rad/단위.</p><div class="mathline">\[\theta(c)=\arccos c,\quad\theta^{\prime}(0.6)=-\frac1{\sqrt{0.64}}=-1.25\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="13">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형14:
+    &quot;&quot;&quot;14번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 14
+        self.문제이름 = &quot;실생활 활용 문제 14&quot;
+
+    def 계산하고_출력하기(self):
+        c = sp.symbols(&quot;c&quot;, real=True)
+        model = acos(c)
+        print(&quot;모형: 방향 코사인과 각도의 변화&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, c)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = Rational(3,5)
+        value = sp.simplify(rate.subs(c, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형14()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형14는 14번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형14()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 c이고, 모델 식은 acos(c)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 코사인값 c가 증가하면 arccos c는 감소합니다. 계산한 변화율의 음수 부호를 확인하세요.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="13">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 미분" data-search="{&quot;cat&quot;: &quot;역삼각함수 미분&quot;, &quot;name&quot;: &quot;아크탄젠트 arctan x&quot;, &quot;formula&quot;: &quot;(arctan x)′ = 1/(1+x²)&quot;, &quot;domain&quot;: &quot;x∈ℝ; 값의 범위 (−π/2,π/2)&quot;, &quot;proof&quot;: [&quot;y=arctan x이면 tan y=x이다.&quot;, &quot;sec²y·y′=1이므로 y′=1/sec²y.&quot;, &quot;sec²y=1+tan²y=1+x²이므로 공식이 성립한다.&quot;], &quot;example&quot;: &quot;y=arctan(3x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=3/(1+9x²).&quot;, &quot;application&quot;: &quot;카메라 방향 θ(d)=arctan(2/d), d&gt;0에서 d=2의 변화율&quot;, &quot;appsolution&quot;: &quot;θ′(d)=−2/(d²+4); θ′(2)=−1/4 rad/m.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 미분</span><span>공식 15 / 37</span></div>
+ <h2>아크탄젠트 arctan x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\arctan x=\frac1{1+x^2}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ; 값의 범위 (−π/2,π/2)</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=arctan x이면 tan y=x이다.</p></li><li><p>sec²y·y′=1이므로 y′=1/sec²y.</p></li><li><p>sec²y=1+tan²y=1+x²이므로 공식이 성립한다.</p></li></ol><div class="mathline">\[\tan y=x\quad\Longrightarrow\quad\sec^2y\,y^{\prime}=1\quad\Longrightarrow\quad y^{\prime}=\frac1{1+x^2}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=arctan(3x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=3/(1+9x²).</p><div class="mathline">\[y=\arctan(3x)\quad\Longrightarrow\quad y^{\prime}=\frac3{1+9x^2}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>카메라 방향 θ(d)=arctan(2/d), d&gt;0에서 d=2의 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>θ′(d)=−2/(d²+4); θ′(2)=−1/4 rad/m.</p><div class="mathline">\[\theta(d)=\arctan\frac2d,\quad\theta^{\prime}(2)=-\frac14\ \text{rad/m}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="14">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형15:
+    &quot;&quot;&quot;15번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 15
+        self.문제이름 = &quot;실생활 활용 문제 15&quot;
+
+    def 계산하고_출력하기(self):
+        d = sp.symbols(&quot;d&quot;, real=True)
+        model = atan(2/d)
+        print(&quot;모형: 카메라 거리와 방향각&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, d)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 2
+        value = sp.simplify(rate.subs(d, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형15()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형15는 15번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형15()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 d이고, 모델 식은 atan(2/d)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 거리 d가 커지면 카메라의 방향각은 작아집니다. d=0은 원래 거리 모형에서 제외합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="14">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 미분" data-search="{&quot;cat&quot;: &quot;역삼각함수 미분&quot;, &quot;name&quot;: &quot;아크코탄젠트 arccot x&quot;, &quot;formula&quot;: &quot;(arccot x)′ = −1/(1+x²)&quot;, &quot;domain&quot;: &quot;x∈ℝ; 값의 범위 (0,π)&quot;, &quot;proof&quot;: [&quot;y=arccot x, cot y=x로 정의한다.&quot;, &quot;−csc²y·y′=1이므로 y′=−1/csc²y.&quot;, &quot;csc²y=1+cot²y=1+x²이다.&quot;], &quot;example&quot;: &quot;y=arccot(2x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=−2/(1+4x²).&quot;, &quot;application&quot;: &quot;각도 θ(r)=arccot r의 r=1 민감도&quot;, &quot;appsolution&quot;: &quot;θ′(1)=−1/2 rad/단위. 정의한 주값 가지를 확인해야 한다.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 미분</span><span>공식 16 / 37</span></div>
+ <h2>아크코탄젠트 arccot x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\operatorname{arccot}x=-\frac1{1+x^2}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ; 값의 범위 (0,π)</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=arccot x, cot y=x로 정의한다.</p></li><li><p>−csc²y·y′=1이므로 y′=−1/csc²y.</p></li><li><p>csc²y=1+cot²y=1+x²이다.</p></li></ol><div class="mathline">\[\cot y=x\quad\Longrightarrow\quad-\csc^2y\,y^{\prime}=1\quad\Longrightarrow\quad y^{\prime}=-\frac1{1+x^2}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=arccot(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=−2/(1+4x²).</p><div class="mathline">\[y=\operatorname{arccot}(2x)\quad\Longrightarrow\quad y^{\prime}=-\frac2{1+4x^2}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>각도 θ(r)=arccot r의 r=1 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>θ′(1)=−1/2 rad/단위. 정의한 주값 가지를 확인해야 한다.</p><div class="mathline">\[\theta(r)=\operatorname{arccot}r,\quad\theta^{\prime}(1)=-\frac12\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="15">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형16:
+    &quot;&quot;&quot;16번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 16
+        self.문제이름 = &quot;실생활 활용 문제 16&quot;
+
+    def 계산하고_출력하기(self):
+        r = sp.symbols(&quot;r&quot;, real=True)
+        model = acot(r)
+        print(&quot;모형: 코탄젠트 비율과 각도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, r)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 1
+        value = sp.simplify(rate.subs(r, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형16()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형16는 16번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형16()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 r이고, 모델 식은 acot(r)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ arccot의 주값은 (0,π)로 정했습니다. 이 정의에서는 입력이 커질수록 각도가 감소합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="15">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 미분" data-search="{&quot;cat&quot;: &quot;역삼각함수 미분&quot;, &quot;name&quot;: &quot;아크시컨트 arcsec x&quot;, &quot;formula&quot;: &quot;(arcsec x)′ = 1/(|x|√(x²−1))&quot;, &quot;domain&quot;: &quot;|x|&gt;1; 주값 범위 [0,π], π/2 제외&quot;, &quot;proof&quot;: [&quot;y=arcsec x이면 sec y=x이다.&quot;, &quot;sec y tan y·y′=1에서 y′=1/(x tan y).&quot;, &quot;주값 가지에서 x tan y=|x|√(x²−1)이므로 결과가 성립한다.&quot;], &quot;example&quot;: &quot;y=arcsec(2x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=2/[|2x|√(4x²−1)] (|x|&gt;1/2).&quot;, &quot;application&quot;: &quot;광학 모형 θ(n)=arcsec n, n&gt;1에서 n=2 민감도&quot;, &quot;appsolution&quot;: &quot;θ′(2)=1/(2√3)≈0.2887 rad/단위.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 미분</span><span>공식 17 / 37</span></div>
+ <h2>아크시컨트 arcsec x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\operatorname{arcsec}x=\frac1{|x|\sqrt{x^2-1}}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> |x|&gt;1; 주값 범위 [0,π], π/2 제외</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=arcsec x이면 sec y=x이다.</p></li><li><p>sec y tan y·y′=1에서 y′=1/(x tan y).</p></li><li><p>주값 가지에서 x tan y=|x|√(x²−1)이므로 결과가 성립한다.</p></li></ol><div class="mathline">\[\sec y=x\quad\Longrightarrow\quad \sec y\tan y\,y^{\prime}=1\quad\Longrightarrow\quad y^{\prime}=\frac1{|x|\sqrt{x^2-1}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=arcsec(2x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=2/[|2x|√(4x²−1)] (|x|&gt;1/2).</p><div class="mathline">\[y=\operatorname{arcsec}(2x)\quad\Longrightarrow\quad y^{\prime}=\frac2{|2x|\sqrt{4x^2-1}}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>광학 모형 θ(n)=arcsec n, n&gt;1에서 n=2 민감도</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>θ′(2)=1/(2√3)≈0.2887 rad/단위.</p><div class="mathline">\[\theta(n)=\operatorname{arcsec}n,\quad\theta^{\prime}(2)=\frac1{2\sqrt3}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="16">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형17:
+    &quot;&quot;&quot;17번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 17
+        self.문제이름 = &quot;실생활 활용 문제 17&quot;
+
+    def 계산하고_출력하기(self):
+        n = sp.symbols(&quot;n&quot;, real=True)
+        model = asec(n)
+        print(&quot;모형: 광학 굴절률 모형의 각도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, n)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 2
+        value = sp.simplify(rate.subs(n, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형17()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형17는 17번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형17()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 n이고, 모델 식은 asec(n)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 굴절률 모형 n은 1보다 커야 합니다. arcsec n의 도함수는 n이 커질수록 작아집니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="16">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 미분" data-search="{&quot;cat&quot;: &quot;역삼각함수 미분&quot;, &quot;name&quot;: &quot;아크코시컨트 arccsc x&quot;, &quot;formula&quot;: &quot;(arccsc x)′ = −1/(|x|√(x²−1))&quot;, &quot;domain&quot;: &quot;|x|&gt;1; 주값 범위 [−π/2,0)∪(0,π/2]&quot;, &quot;proof&quot;: [&quot;y=arccsc x이면 csc y=x이다.&quot;, &quot;−csc y cot y·y′=1에서 y′=−1/(x cot y).&quot;, &quot;주값 가지에서 x cot y=|x|√(x²−1)이다.&quot;], &quot;example&quot;: &quot;y=arccsc(3x)의 도함수&quot;, &quot;solution&quot;: &quot;y′=−3/[|3x|√(9x²−1)] (|x|&gt;1/3).&quot;, &quot;application&quot;: &quot;각도 θ(r)=arccsc r, r&gt;1에서 r=2 변화율&quot;, &quot;appsolution&quot;: &quot;θ′(2)=−1/(2√3)≈−0.2887 rad/단위.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 미분</span><span>공식 18 / 37</span></div>
+ <h2>아크코시컨트 arccsc x</h2><div class="formula"><div class="major-math">\[\frac{d}{dx}\operatorname{arccsc}x=-\frac1{|x|\sqrt{x^2-1}}\]</div></div>
+ <div class="condition"><b>정의역·조건</b> |x|&gt;1; 주값 범위 [−π/2,0)∪(0,π/2]</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>y=arccsc x이면 csc y=x이다.</p></li><li><p>−csc y cot y·y′=1에서 y′=−1/(x cot y).</p></li><li><p>주값 가지에서 x cot y=|x|√(x²−1)이다.</p></li></ol><div class="mathline">\[\csc y=x\quad\Longrightarrow\quad -\csc y\cot y\,y^{\prime}=1\quad\Longrightarrow\quad y^{\prime}=-\frac1{|x|\sqrt{x^2-1}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>y=arccsc(3x)의 도함수</p></div><div class="solution"><b>풀이 및 검산</b><p>y′=−3/[|3x|√(9x²−1)] (|x|&gt;1/3).</p><div class="mathline">\[y=\operatorname{arccsc}(3x)\quad\Longrightarrow\quad y^{\prime}=-\frac3{|3x|\sqrt{9x^2-1}}\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>각도 θ(r)=arccsc r, r&gt;1에서 r=2 변화율</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>θ′(2)=−1/(2√3)≈−0.2887 rad/단위.</p><div class="mathline">\[\theta(r)=\operatorname{arccsc}r,\quad\theta^{\prime}(2)=-\frac1{2\sqrt3}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="17">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형18:
+    &quot;&quot;&quot;18번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 18
+        self.문제이름 = &quot;실생활 활용 문제 18&quot;
+
+    def 계산하고_출력하기(self):
+        r = sp.symbols(&quot;r&quot;, real=True)
+        model = acsc(r)
+        print(&quot;모형: 코시컨트 비율과 각도&quot;)
+        print(&quot;함수:&quot;, model)
+        rate = sp.diff(model, r)
+        print(&quot;미분 결과:&quot;, sp.simplify(rate))
+        point = 2
+        value = sp.simplify(rate.subs(r, point))
+        print(&quot;해석 지점:&quot;, point)
+        print(&quot;순간 변화율(정확값):&quot;, value)
+        print(&quot;순간 변화율(근삿값):&quot;, sp.N(value, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형18()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형18는 18번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형18()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 r이고, 모델 식은 acsc(r)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `subs`로 문제에서 지정한 값을 대입합니다. `sp.simplify`는 정확한 기호 결과를 정리합니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ arccsc r의 주값을 정한 뒤 미분해야 합니다. r&gt;1에서 변화율은 음수입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="17">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 적분" data-search="{&quot;cat&quot;: &quot;지수·로그 적분&quot;, &quot;name&quot;: &quot;eˣ의 부정적분&quot;, &quot;formula&quot;: &quot;∫e^x dx = e^x + c&quot;, &quot;domain&quot;: &quot;x∈ℝ&quot;, &quot;proof&quot;: [&quot;f(x)=e^x를 미분하면 f′(x)=e^x이다.&quot;, &quot;부정적분은 주어진 함수의 모든 원시함수를 찾는 것이다.&quot;, &quot;상수의 미분은 0이므로 적분상수 c를 더한다.&quot;], &quot;example&quot;: &quot;∫5e^(2x) dx&quot;, &quot;solution&quot;: &quot;치환 u=2x, du=2dx: (5/2)e^(2x)+c.&quot;, &quot;application&quot;: &quot;유입률 r(t)=30e^(0.2t) (명/시간)의 0~5시간 누적 유입&quot;, &quot;appsolution&quot;: &quot;∫₀⁵30e^(0.2t)dt=150(e−1)≈257.74명. 연속 모형의 기대 누적량이다.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 적분</span><span>공식 19 / 37</span></div>
+ <h2>eˣ의 부정적분</h2><div class="formula"><div class="major-math">\[\int e^x\,dx=e^x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>F(x)=e^x를 미분하면 F′(x)=e^x이다.</p></li><li><p>부정적분은 주어진 함수의 모든 원시함수를 찾는 것이다.</p></li><li><p>상수의 미분은 0이므로 적분상수 C를 더한다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(e^x+C)=e^x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫5e^(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>치환 u=2x, du=2dx: (5/2)e^(2x)+C.</p><div class="mathline">\[\int5e^{2x}\,dx=\frac52e^{2x}+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>유입률 r(t)=30e^(0.2t) (명/시간)의 0~5시간 누적 유입</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀⁵30e^(0.2t)dt=150(e−1)≈257.74명. 연속 모형의 기대 누적량이다.</p><div class="mathline">\[\int_0^5 30e^{0.2t}\,dt=150(e-1)\approx257.74\ \text{명}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="18">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형19:
+    &quot;&quot;&quot;19번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 19
+        self.문제이름 = &quot;실생활 활용 문제 19&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 30*exp(t/5)
+        print(&quot;모형: 시간에 따른 누적 유입 인원&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, 5
+        area = sp.integrate(model, (t, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형19()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형19는 19번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형19()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 30*exp(t/5)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 유입률의 단위가 명/시간이므로 시간에 대해 적분하면 명이 됩니다. 연속 모형의 누적값은 소수일 수 있습니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="18">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 적분" data-search="{&quot;cat&quot;: &quot;지수·로그 적분&quot;, &quot;name&quot;: &quot;aˣ의 부정적분&quot;, &quot;formula&quot;: &quot;∫a^x dx = a^x/ln a + c&quot;, &quot;domain&quot;: &quot;a&gt;0, a≠1&quot;, &quot;proof&quot;: [&quot;a^x의 미분은 a^x ln a이다.&quot;, &quot;따라서 a^x를 ln a로 나눈 함수를 미분하면 a^x이다.&quot;, &quot;원시함수의 상수 차이를 c로 표시한다.&quot;], &quot;example&quot;: &quot;∫3^x dx&quot;, &quot;solution&quot;: &quot;3^x/ln3+c.&quot;, &quot;application&quot;: &quot;약품 투입률 r(t)=2^t mg/h의 0~3시간 누적량&quot;, &quot;appsolution&quot;: &quot;∫₀³2^t dt=(8−1)/ln2≈10.10 mg.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 적분</span><span>공식 20 / 37</span></div>
+ <h2>aˣ의 부정적분</h2><div class="formula"><div class="major-math">\[\int a^x\,dx=\frac{a^x}{\ln a}+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> a&gt;0, a≠1</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>a^x의 미분은 a^x ln a이다.</p></li><li><p>따라서 a^x를 ln a로 나눈 함수를 미분하면 a^x이다.</p></li><li><p>원시함수의 상수 차이를 C로 표시한다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\left(\frac{a^x}{\ln a}+C\right)=a^x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫3^x dx</p></div><div class="solution"><b>풀이 및 검산</b><p>3^x/ln3+C.</p><div class="mathline">\[\int3^x\,dx=\frac{3^x}{\ln3}+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>약품 투입률 r(t)=2^t mg/h의 0~3시간 누적량</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀³2^t dt=(8−1)/ln2≈10.10 mg.</p><div class="mathline">\[\int_0^3 2^t\,dt=\frac7{\ln2}\approx10.10\ \text{mg}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="19">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형20:
+    &quot;&quot;&quot;20번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 20
+        self.문제이름 = &quot;실생활 활용 문제 20&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 2**t
+        print(&quot;모형: 지수적으로 증가하는 약품 투입량&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, 3
+        area = sp.integrate(model, (t, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형20()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형20는 20번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형20()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 2**t입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 시간에 따른 투입률을 적분하면 총 투입량 mg이 됩니다. 지수함수 적분에서는 ln 2로 나눕니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="19">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 적분" data-search="{&quot;cat&quot;: &quot;지수·로그 적분&quot;, &quot;name&quot;: &quot;1/x의 부정적분&quot;, &quot;formula&quot;: &quot;∫(1/x) dx = ln|x| + c&quot;, &quot;domain&quot;: &quot;x≠0, 각각의 연결 구간&quot;, &quot;proof&quot;: [&quot;ln|x|의 미분은 1/x이다.&quot;, &quot;x&gt;0과 x&lt;0을 각각 확인한다.&quot;, &quot;0을 가로지르는 단일 구간에서는 원시함수를 정의할 수 없다.&quot;], &quot;example&quot;: &quot;∫(3/x) dx&quot;, &quot;solution&quot;: &quot;3ln|x|+c, x≠0.&quot;, &quot;application&quot;: &quot;속도 v(t)=12/t km/h, 1≤t≤4의 이동거리&quot;, &quot;appsolution&quot;: &quot;∫₁⁴12/t dt=12ln4≈16.64 km. t=0은 모형에서 제외한다.&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 적분</span><span>공식 21 / 37</span></div>
+ <h2>1/x의 부정적분</h2><div class="formula"><div class="major-math">\[\int\frac1x\,dx=\ln|x|+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x≠0, 각각의 연결 구간</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>ln|x|의 미분은 1/x이다.</p></li><li><p>x&gt;0과 x&lt;0을 각각 확인한다.</p></li><li><p>0을 가로지르는 단일 구간에서는 원시함수를 정의할 수 없다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\ln|x|=\frac1x\quad(x\ne0)\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫(3/x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>3ln|x|+C, x≠0.</p><div class="mathline">\[\int\frac3x\,dx=3\ln|x|+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>속도 v(t)=12/t km/h, 1≤t≤4의 이동거리</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₁⁴12/t dt=12ln4≈16.64 km. t=0은 모형에서 제외한다.</p><div class="mathline">\[\int_1^4\frac{12}{t}\,dt=12\ln4\approx16.64\ \text{km}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="20">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형21:
+    &quot;&quot;&quot;21번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 21
+        self.문제이름 = &quot;실생활 활용 문제 21&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 12/t
+        print(&quot;모형: 속도 함수의 이동 거리&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 1, 4
+        area = sp.integrate(model, (t, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형21()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형21는 21번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형21()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 12/t입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 속도 12/t는 1≤t≤4에서 양수입니다. 따라서 정적분 값은 변위이면서 이동거리입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="20">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="지수·로그 적분" data-search="{&quot;cat&quot;: &quot;지수·로그 적분&quot;, &quot;name&quot;: &quot;ln x의 부정적분&quot;, &quot;formula&quot;: &quot;∫ln x dx = x ln x − x + c&quot;, &quot;domain&quot;: &quot;x&gt;0&quot;, &quot;proof&quot;: [&quot;부분적분 ∫u dv=uv−∫v du를 쓴다.&quot;, &quot;u=ln x, dv=dx이면 du=dx/x, v=x이다.&quot;, &quot;∫ln x dx=x ln x−∫1dx=x ln x−x+c.&quot;], &quot;example&quot;: &quot;∫₂⁴ln x dx&quot;, &quot;solution&quot;: &quot;[x ln x−x]₂⁴=4ln4−2ln2−2=6ln2−2.&quot;, &quot;application&quot;: &quot;단위당 편익 b(q)=ln q (q&gt;0)의 1~e 누적 편익&quot;, &quot;appsolution&quot;: &quot;∫₁ᵉln q dq=[q ln q−q]₁ᵉ=1 (모형 단위).&quot;}">
+ <div class="eyebrow"><span class="tag">지수·로그 적분</span><span>공식 22 / 37</span></div>
+ <h2>ln x의 부정적분</h2><div class="formula"><div class="major-math">\[\int\ln x\,dx=x\ln x-x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x&gt;0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>부분적분 ∫u dv=uv−∫v du를 쓴다.</p></li><li><p>u=ln x, dv=dx이면 du=dx/x, v=x이다.</p></li><li><p>∫ln x dx=x ln x−∫1dx=x ln x−x+C.</p></li></ol><div class="mathline">\[\int\ln x\,dx=x\ln x-\int x\frac1x\,dx=x\ln x-x+C\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫₂⁴ln x dx</p></div><div class="solution"><b>풀이 및 검산</b><p>[x ln x−x]₂⁴=4ln4−2ln2−2=6ln2−2.</p><div class="mathline">\[\int_2^4\ln x\,dx=6\ln2-2\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>단위당 편익 B(q)=ln q (q&gt;0)의 1~e 누적 편익</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₁ᵉln q dq=[q ln q−q]₁ᵉ=1 (모형 단위).</p><div class="mathline">\[\int_1^e\ln q\,dq=1\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="21">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형22:
+    &quot;&quot;&quot;22번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 22
+        self.문제이름 = &quot;실생활 활용 문제 22&quot;
+
+    def 계산하고_출력하기(self):
+        q = sp.symbols(&quot;q&quot;, real=True)
+        model = log(q)
+        print(&quot;모형: 로그형 한계 편익의 누적값&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 1, E
+        area = sp.integrate(model, (q, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형22()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형22는 22번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형22()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 q이고, 모델 식은 log(q)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 한계 편익을 적분해 총편익의 변화를 계산합니다. q=0은 로그 정의역에서 제외합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="21">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;사인 sin x&quot;, &quot;formula&quot;: &quot;∫sin x dx = −cos x + c&quot;, &quot;domain&quot;: &quot;x∈ℝ&quot;, &quot;proof&quot;: [&quot;cos x의 도함수는 −sin x이다.&quot;, &quot;따라서 −cos x의 도함수는 sin x이다.&quot;, &quot;적분상수 c를 더해 모든 원시함수를 표현한다.&quot;], &quot;example&quot;: &quot;∫sin(3x) dx&quot;, &quot;solution&quot;: &quot;−(1/3)cos(3x)+c.&quot;, &quot;application&quot;: &quot;속도 v(t)=2sin(πt) m/s의 0~1초 변위&quot;, &quot;appsolution&quot;: &quot;∫₀¹2sin(πt)dt=4/π≈1.273 m.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 23 / 37</span></div>
+ <h2>사인 sin x</h2><div class="formula"><div class="major-math">\[\int\sin x\,dx=-\cos x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>cos x의 도함수는 −sin x이다.</p></li><li><p>따라서 −cos x의 도함수는 sin x이다.</p></li><li><p>적분상수 C를 더해 모든 원시함수를 표현한다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(-\cos x+C)=\sin x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫sin(3x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>−(1/3)cos(3x)+C.</p><div class="mathline">\[\int\sin(3x)\,dx=-\frac13\cos(3x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>속도 v(t)=2sin(πt) m/s의 0~1초 변위</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀¹2sin(πt)dt=4/π≈1.273 m.</p><div class="mathline">\[\int_0^1 2\sin(\pi t)\,dt=\frac4\pi\approx1.273\ \text{m}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="22">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형23:
+    &quot;&quot;&quot;23번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 23
+        self.문제이름 = &quot;실생활 활용 문제 23&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 2*sin(pi*t)
+        print(&quot;모형: 진동 속도로부터 변위 계산&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, 1
+        area = sp.integrate(model, (t, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형23()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형23는 23번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형23()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 2*sin(pi*t)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 속도가 0~1초 동안 음수가 아니므로 적분값은 변위와 이동거리 모두에 해당합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="22">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;코사인 cos x&quot;, &quot;formula&quot;: &quot;∫cos x dx = sin x + c&quot;, &quot;domain&quot;: &quot;x∈ℝ&quot;, &quot;proof&quot;: [&quot;sin x를 미분하면 cos x이다.&quot;, &quot;따라서 sin x가 cos x의 원시함수이다.&quot;, &quot;상수 c는 미분 결과를 바꾸지 않는다.&quot;], &quot;example&quot;: &quot;∫4cos(2x) dx&quot;, &quot;solution&quot;: &quot;2sin(2x)+c.&quot;, &quot;application&quot;: &quot;속도 v(t)=3cos(πt/2) m/s의 0~1초 변위&quot;, &quot;appsolution&quot;: &quot;∫₀¹3cos(πt/2)dt=6/π≈1.910 m.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 24 / 37</span></div>
+ <h2>코사인 cos x</h2><div class="formula"><div class="major-math">\[\int\cos x\,dx=\sin x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>sin x를 미분하면 cos x이다.</p></li><li><p>따라서 sin x가 cos x의 원시함수이다.</p></li><li><p>상수 C는 미분 결과를 바꾸지 않는다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(\sin x+C)=\cos x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫4cos(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>2sin(2x)+C.</p><div class="mathline">\[\int4\cos(2x)\,dx=2\sin(2x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>속도 v(t)=3cos(πt/2) m/s의 0~1초 변위</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀¹3cos(πt/2)dt=6/π≈1.910 m.</p><div class="mathline">\[\int_0^1 3\cos\left(\frac{\pi t}2\right)\,dt=\frac6\pi\approx1.910\ \text{m}\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="23">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형24:
+    &quot;&quot;&quot;24번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 24
+        self.문제이름 = &quot;실생활 활용 문제 24&quot;
+
+    def 계산하고_출력하기(self):
+        t = sp.symbols(&quot;t&quot;, real=True)
+        model = 3*cos(pi*t/2)
+        print(&quot;모형: 주기 운동의 변위 계산&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, 1
+        area = sp.integrate(model, (t, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형24()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형24는 24번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형24()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 t이고, 모델 식은 3*cos(pi*t/2)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 코사인 속도는 0~1초에서 양수입니다. 적분은 누적 변위이고 단위는 m입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="23">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;시컨트 제곱 sec²x&quot;, &quot;formula&quot;: &quot;∫sec²x dx = tan x + c&quot;, &quot;domain&quot;: &quot;cos x≠0인 각 연결 구간&quot;, &quot;proof&quot;: [&quot;tan x의 도함수는 sec²x이다.&quot;, &quot;따라서 tan x가 원시함수이다.&quot;, &quot;불연속점 π/2+kπ를 가로질러 적분하지 않는다.&quot;], &quot;example&quot;: &quot;∫sec²(2x) dx&quot;, &quot;solution&quot;: &quot;(1/2)tan(2x)+c.&quot;, &quot;application&quot;: &quot;경사 변화율 m′(θ)=sec²θ의 0~π/4 총변화&quot;, &quot;appsolution&quot;: &quot;m(π/4)−m(0)=tan(π/4)−tan0=1.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 25 / 37</span></div>
+ <h2>시컨트 제곱 sec²x</h2><div class="formula"><div class="major-math">\[\int\sec^2x\,dx=\tan x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> cos x≠0인 각 연결 구간</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>tan x의 도함수는 sec²x이다.</p></li><li><p>따라서 tan x가 원시함수이다.</p></li><li><p>불연속점 π/2+kπ를 가로질러 적분하지 않는다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(\tan x+C)=\sec^2x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫sec²(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>(1/2)tan(2x)+C.</p><div class="mathline">\[\int\sec^2(2x)\,dx=\frac12\tan(2x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>경사 변화율 m′(θ)=sec²θ의 0~π/4 총변화</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>m(π/4)−m(0)=tan(π/4)−tan0=1.</p><div class="mathline">\[\int_0^{\pi/4}\sec^2\theta\,d\theta=1\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="24">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형25:
+    &quot;&quot;&quot;25번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 25
+        self.문제이름 = &quot;실생활 활용 문제 25&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = sec(theta)**2
+        print(&quot;모형: 경사 함수의 총변화량&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, pi/4
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형25()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형25는 25번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형25()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 sec(theta)**2입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 경사 변화율을 적분하면 시작각과 끝각에서의 경사 차이가 됩니다. 각도는 라디안입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="24">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;코시컨트 제곱 csc²x&quot;, &quot;formula&quot;: &quot;∫csc²x dx = −cot x + c&quot;, &quot;domain&quot;: &quot;sin x≠0인 각 연결 구간&quot;, &quot;proof&quot;: [&quot;cot x의 도함수는 −csc²x이다.&quot;, &quot;따라서 −cot x를 미분하면 csc²x이다.&quot;, &quot;정의되지 않는 kπ를 피해야 한다.&quot;], &quot;example&quot;: &quot;∫csc²(3x) dx&quot;, &quot;solution&quot;: &quot;−(1/3)cot(3x)+c.&quot;, &quot;application&quot;: &quot;변화율 r′(θ)=−csc²θ의 π/4~π/2 총변화&quot;, &quot;appsolution&quot;: &quot;∫π/4^π/2 −csc²θ dθ=[cotθ]π/4^π/2=−1.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 26 / 37</span></div>
+ <h2>코시컨트 제곱 csc²x</h2><div class="formula"><div class="major-math">\[\int\csc^2x\,dx=-\cot x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> sin x≠0인 각 연결 구간</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>cot x의 도함수는 −csc²x이다.</p></li><li><p>따라서 −cot x를 미분하면 csc²x이다.</p></li><li><p>정의되지 않는 kπ를 피해야 한다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(-\cot x+C)=\csc^2x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫csc²(3x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>−(1/3)cot(3x)+C.</p><div class="mathline">\[\int\csc^2(3x)\,dx=-\frac13\cot(3x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>변화율 R′(θ)=−csc²θ의 π/4~π/2 총변화</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫π/4^π/2 −csc²θ dθ=[cotθ]π/4^π/2=−1.</p><div class="mathline">\[\int_{\pi/4}^{\pi/2}-\csc^2\theta\,d\theta=-1\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="25">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형26:
+    &quot;&quot;&quot;26번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 26
+        self.문제이름 = &quot;실생활 활용 문제 26&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = -csc(theta)**2
+        print(&quot;모형: 그림자 비율의 총변화량&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = pi/4, pi/2
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형26()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형26는 26번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형26()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 -csc(theta)**2입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 음의 변화율을 적분하므로 총변화량은 음수입니다. cot(π/2)=0과 cot(π/4)=1을 비교하세요.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="25">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;sec x tan x&quot;, &quot;formula&quot;: &quot;∫sec x tan x dx = sec x + c&quot;, &quot;domain&quot;: &quot;cos x≠0&quot;, &quot;proof&quot;: [&quot;sec x의 도함수는 sec x tan x이다.&quot;, &quot;미분 공식을 역으로 적용한다.&quot;, &quot;정의역의 연결 구간마다 적분상수가 달라질 수 있다.&quot;], &quot;example&quot;: &quot;∫2sec(2x)tan(2x) dx&quot;, &quot;solution&quot;: &quot;sec(2x)+c.&quot;, &quot;application&quot;: &quot;광학 배율 s′(θ)=secθtanθ의 0~π/3 변화량&quot;, &quot;appsolution&quot;: &quot;s(π/3)−s(0)=2−1=1.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 27 / 37</span></div>
+ <h2>sec x tan x</h2><div class="formula"><div class="major-math">\[\int\sec x\tan x\,dx=\sec x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> cos x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>sec x의 도함수는 sec x tan x이다.</p></li><li><p>미분 공식을 역으로 적용한다.</p></li><li><p>정의역의 연결 구간마다 적분상수가 달라질 수 있다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(\sec x+C)=\sec x\tan x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫2sec(2x)tan(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>sec(2x)+C.</p><div class="mathline">\[\int2\sec(2x)\tan(2x)\,dx=\sec(2x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>광학 배율 S′(θ)=secθtanθ의 0~π/3 변화량</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>S(π/3)−S(0)=2−1=1.</p><div class="mathline">\[\int_0^{\pi/3}\sec\theta\tan\theta\,d\theta=1\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="26">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형27:
+    &quot;&quot;&quot;27번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 27
+        self.문제이름 = &quot;실생활 활용 문제 27&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = sec(theta)*tan(theta)
+        print(&quot;모형: 광학 배율의 총변화량&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, pi/3
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형27()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형27는 27번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형27()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 sec(theta)*tan(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 광학 배율의 도함수를 적분하면 최종 배율에서 초기 배율을 뺀 값과 같습니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="26">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;csc x cot x&quot;, &quot;formula&quot;: &quot;∫csc x cot x dx = −csc x + c&quot;, &quot;domain&quot;: &quot;sin x≠0&quot;, &quot;proof&quot;: [&quot;csc x의 도함수는 −csc x cot x이다.&quot;, &quot;따라서 −csc x가 원시함수이다.&quot;, &quot;sin x=0인 지점은 적분 구간에서 제외한다.&quot;], &quot;example&quot;: &quot;∫3csc(3x)cot(3x) dx&quot;, &quot;solution&quot;: &quot;−csc(3x)+c.&quot;, &quot;application&quot;: &quot;보정 계수 c′(θ)=−cscθcotθ의 π/6~π/2 변화&quot;, &quot;appsolution&quot;: &quot;c(π/2)−c(π/6)=1−2=−1.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 28 / 37</span></div>
+ <h2>csc x cot x</h2><div class="formula"><div class="major-math">\[\int\csc x\cot x\,dx=-\csc x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> sin x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>csc x의 도함수는 −csc x cot x이다.</p></li><li><p>따라서 −csc x가 원시함수이다.</p></li><li><p>sin x=0인 지점은 적분 구간에서 제외한다.</p></li></ol><div class="mathline">\[\frac{d}{dx}(-\csc x+C)=\csc x\cot x\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫3csc(3x)cot(3x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>−csc(3x)+C.</p><div class="mathline">\[\int3\csc(3x)\cot(3x)\,dx=-\csc(3x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>보정 계수 C′(θ)=−cscθcotθ의 π/6~π/2 변화</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>C(π/2)−C(π/6)=1−2=−1.</p><div class="mathline">\[\int_{\pi/6}^{\pi/2}-\csc\theta\cot\theta\,d\theta=-1\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="27">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형28:
+    &quot;&quot;&quot;28번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 28
+        self.문제이름 = &quot;실생활 활용 문제 28&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = -csc(theta)*cot(theta)
+        print(&quot;모형: 보정 계수의 총변화량&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = pi/6, pi/2
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형28()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형28는 28번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형28()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 -csc(theta)*cot(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ csc θ의 변화율을 적분한 값은 csc(π/2)-csc(π/6)과 일치해야 합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="27">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;탄젠트 tan x&quot;, &quot;formula&quot;: &quot;∫tan x dx = −ln|cos x| + c&quot;, &quot;domain&quot;: &quot;cos x≠0&quot;, &quot;proof&quot;: [&quot;tan x=sin x/cos x이다.&quot;, &quot;u=cos x로 치환하면 du=−sin x dx이다.&quot;, &quot;−∫du/u=−ln|u|+c이다.&quot;], &quot;example&quot;: &quot;∫tan(2x) dx&quot;, &quot;solution&quot;: &quot;−(1/2)ln|cos(2x)|+c.&quot;, &quot;application&quot;: &quot;기울기 변화율 r(θ)=tanθ의 0~π/4 누적값&quot;, &quot;appsolution&quot;: &quot;∫₀^π/4 tanθ dθ=−ln(cosπ/4)=½ln2≈0.3466.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 29 / 37</span></div>
+ <h2>탄젠트 tan x</h2><div class="formula"><div class="major-math">\[\int\tan x\,dx=-\ln|\cos x|+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> cos x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>tan x=sin x/cos x이다.</p></li><li><p>u=cos x로 치환하면 du=−sin x dx이다.</p></li><li><p>−∫du/u=−ln|u|+C이다.</p></li></ol><div class="mathline">\[\int\tan x\,dx=\int\frac{\sin x}{\cos x}\,dx=-\ln|\cos x|+C\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫tan(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>−(1/2)ln|cos(2x)|+C.</p><div class="mathline">\[\int\tan(2x)\,dx=-\frac12\ln|\cos(2x)|+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>기울기 변화율 r(θ)=tanθ의 0~π/4 누적값</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀^π/4 tanθ dθ=−ln(cosπ/4)=½ln2≈0.3466.</p><div class="mathline">\[\int_0^{\pi/4}\tan\theta\,d\theta=\frac12\ln2\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="28">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형29:
+    &quot;&quot;&quot;29번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 29
+        self.문제이름 = &quot;실생활 활용 문제 29&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = tan(theta)
+        print(&quot;모형: 경사 변화율의 누적값&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, pi/4
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형29()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형29는 29번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형29()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 tan(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 탄젠트의 적분은 -ln|cos θ|입니다. 적분 구간에서는 cos θ가 양수입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="28">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;코탄젠트 cot x&quot;, &quot;formula&quot;: &quot;∫cot x dx = ln|sin x| + c&quot;, &quot;domain&quot;: &quot;sin x≠0&quot;, &quot;proof&quot;: [&quot;cot x=cos x/sin x이다.&quot;, &quot;u=sin x, du=cos x dx로 치환한다.&quot;, &quot;∫du/u=ln|u|+c이다.&quot;], &quot;example&quot;: &quot;∫cot(3x) dx&quot;, &quot;solution&quot;: &quot;(1/3)ln|sin(3x)|+c.&quot;, &quot;application&quot;: &quot;비율 r(θ)=cotθ의 π/4~π/2 누적값&quot;, &quot;appsolution&quot;: &quot;∫π/4^π/2 cotθ dθ=ln1−ln(√2/2)=½ln2.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 30 / 37</span></div>
+ <h2>코탄젠트 cot x</h2><div class="formula"><div class="major-math">\[\int\cot x\,dx=\ln|\sin x|+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> sin x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>cot x=cos x/sin x이다.</p></li><li><p>u=sin x, du=cos x dx로 치환한다.</p></li><li><p>∫du/u=ln|u|+C이다.</p></li></ol><div class="mathline">\[\int\cot x\,dx=\int\frac{\cos x}{\sin x}\,dx=\ln|\sin x|+C\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫cot(3x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>(1/3)ln|sin(3x)|+C.</p><div class="mathline">\[\int\cot(3x)\,dx=\frac13\ln|\sin(3x)|+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>비율 r(θ)=cotθ의 π/4~π/2 누적값</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫π/4^π/2 cotθ dθ=ln1−ln(√2/2)=½ln2.</p><div class="mathline">\[\int_{\pi/4}^{\pi/2}\cot\theta\,d\theta=\frac12\ln2\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="29">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형30:
+    &quot;&quot;&quot;30번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 30
+        self.문제이름 = &quot;실생활 활용 문제 30&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = cot(theta)
+        print(&quot;모형: 각도별 비율의 누적값&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = pi/4, pi/2
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형30()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형30는 30번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형30()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 cot(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 코탄젠트의 적분은 ln|sin θ|입니다. π/4부터 π/2까지 sin θ는 양수입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="29">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;시컨트 sec x&quot;, &quot;formula&quot;: &quot;∫sec x dx = ln|sec x+tan x| + c&quot;, &quot;domain&quot;: &quot;cos x≠0&quot;, &quot;proof&quot;: [&quot;분자와 분모에 sec x+tan x를 곱한다.&quot;, &quot;sec x(sec x+tan x)/(sec x+tan x)로 만든다.&quot;, &quot;u=sec x+tan x이면 du=sec x(sec x+tan x)dx이므로 ln|u|+c이다.&quot;], &quot;example&quot;: &quot;∫sec(2x) dx&quot;, &quot;solution&quot;: &quot;(1/2)ln|sec(2x)+tan(2x)|+c.&quot;, &quot;application&quot;: &quot;경로 배율 r(θ)=secθ의 0~π/3 누적값&quot;, &quot;appsolution&quot;: &quot;∫₀^π/3 secθdθ=ln(2+√3)≈1.317.&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 31 / 37</span></div>
+ <h2>시컨트 sec x</h2><div class="formula"><div class="major-math">\[\int\sec x\,dx=\ln|\sec x+\tan x|+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> cos x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>분자와 분모에 sec x+tan x를 곱한다.</p></li><li><p>sec x(sec x+tan x)/(sec x+tan x)로 만든다.</p></li><li><p>u=sec x+tan x이면 du=sec x(sec x+tan x)dx이므로 ln|u|+C이다.</p></li></ol><div class="mathline">\[\int\sec x\,dx=\int\frac{\sec x(\sec x+\tan x)}{\sec x+\tan x}\,dx=\ln|\sec x+\tan x|+C\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫sec(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>(1/2)ln|sec(2x)+tan(2x)|+C.</p><div class="mathline">\[\int\sec(2x)\,dx=\frac12\ln|\sec(2x)+\tan(2x)|+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>경로 배율 r(θ)=secθ의 0~π/3 누적값</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀^π/3 secθdθ=ln(2+√3)≈1.317.</p><div class="mathline">\[\int_0^{\pi/3}\sec\theta\,d\theta=\ln(2+\sqrt3)\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="30">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형31:
+    &quot;&quot;&quot;31번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 31
+        self.문제이름 = &quot;실생활 활용 문제 31&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = sec(theta)
+        print(&quot;모형: 경로 길이 배율의 누적값&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, pi/3
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형31()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형31는 31번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형31()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 sec(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ sec θ의 적분은 로그형 원시함수를 가집니다. θ=π/2의 특이점에 닿지 않도록 합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="30">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="삼각함수 적분" data-search="{&quot;cat&quot;: &quot;삼각함수 적분&quot;, &quot;name&quot;: &quot;코시컨트 csc x&quot;, &quot;formula&quot;: &quot;∫csc x dx = ln|csc x−cot x| + c&quot;, &quot;domain&quot;: &quot;sin x≠0&quot;, &quot;proof&quot;: [&quot;csc x(csc x−cot x)/(csc x−cot x)로 변형한다.&quot;, &quot;u=csc x−cot x이면 du=csc x(csc x−cot x)dx이다.&quot;, &quot;∫du/u=ln|csc x−cot x|+c이다.&quot;], &quot;example&quot;: &quot;∫csc(2x) dx&quot;, &quot;solution&quot;: &quot;(1/2)ln|csc(2x)−cot(2x)|+c.&quot;, &quot;application&quot;: &quot;보정 r(θ)=cscθ의 π/6~π/2 누적값&quot;, &quot;appsolution&quot;: &quot;∫π/6^π/2 cscθdθ=ln1−ln(2−√3)=ln(2+√3).&quot;}">
+ <div class="eyebrow"><span class="tag">삼각함수 적분</span><span>공식 32 / 37</span></div>
+ <h2>코시컨트 csc x</h2><div class="formula"><div class="major-math">\[\int\csc x\,dx=\ln|\csc x-\cot x|+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> sin x≠0</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>csc x(csc x−cot x)/(csc x−cot x)로 변형한다.</p></li><li><p>u=csc x−cot x이면 du=csc x(csc x−cot x)dx이다.</p></li><li><p>∫du/u=ln|csc x−cot x|+C이다.</p></li></ol><div class="mathline">\[\int\csc x\,dx=\int\frac{\csc x(\csc x-\cot x)}{\csc x-\cot x}\,dx=\ln|\csc x-\cot x|+C\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫csc(2x) dx</p></div><div class="solution"><b>풀이 및 검산</b><p>(1/2)ln|csc(2x)−cot(2x)|+C.</p><div class="mathline">\[\int\csc(2x)\,dx=\frac12\ln|\csc(2x)-\cot(2x)|+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>보정 r(θ)=cscθ의 π/6~π/2 누적값</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫π/6^π/2 cscθdθ=ln1−ln(2−√3)=ln(2+√3).</p><div class="mathline">\[\int_{\pi/6}^{\pi/2}\csc\theta\,d\theta=\ln(2+\sqrt3)\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="31">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형32:
+    &quot;&quot;&quot;32번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 32
+        self.문제이름 = &quot;실생활 활용 문제 32&quot;
+
+    def 계산하고_출력하기(self):
+        theta = sp.symbols(&quot;theta&quot;, real=True)
+        model = csc(theta)
+        print(&quot;모형: 측정 보정량의 누적값&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = pi/6, pi/2
+        area = sp.integrate(model, (theta, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형32()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형32는 32번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형32()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 theta이고, 모델 식은 csc(theta)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ csc θ의 적분에서도 로그가 나타납니다. 시작각 π/6은 sin θ=0을 피합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="31">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 적분" data-search="{&quot;cat&quot;: &quot;역삼각함수 적분&quot;, &quot;name&quot;: &quot;1/√(1−x²)&quot;, &quot;formula&quot;: &quot;∫dx/√(1−x²) = arcsin x + c&quot;, &quot;domain&quot;: &quot;−1&lt;x&lt;1&quot;, &quot;proof&quot;: [&quot;arcsin x의 도함수는 1/√(1−x²)이다.&quot;, &quot;따라서 역삼각함수 미분 공식을 역으로 적용한다.&quot;, &quot;끝점에서는 피적분함수가 발산하므로 정적분은 이상적분으로 다룬다.&quot;], &quot;example&quot;: &quot;∫dx/√(9−x²)&quot;, &quot;solution&quot;: &quot;x=3u로 치환하면 arcsin(x/3)+c (|x|&lt;3).&quot;, &quot;application&quot;: &quot;반원 단면에 관련된 변화율 r(x)=1/√(1−x²)의 0~1 누적값&quot;, &quot;appsolution&quot;: &quot;이상적분 ∫₀¹dx/√(1−x²)=π/2. 끝점의 발산에도 적분값은 유한하다.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 적분</span><span>공식 33 / 37</span></div>
+ <h2>1/√(1−x²)</h2><div class="formula"><div class="major-math">\[\int\frac{dx}{\sqrt{1-x^2}}=\arcsin x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> −1&lt;x&lt;1</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>arcsin x의 도함수는 1/√(1−x²)이다.</p></li><li><p>따라서 역삼각함수 미분 공식을 역으로 적용한다.</p></li><li><p>끝점에서는 피적분함수가 발산하므로 정적분은 이상적분으로 다룬다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\arcsin x=\frac1{\sqrt{1-x^2}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫dx/√(9−x²)</p></div><div class="solution"><b>풀이 및 검산</b><p>x=3u로 치환하면 arcsin(x/3)+C (|x|&lt;3).</p><div class="mathline">\[\int\frac{dx}{\sqrt{9-x^2}}=\arcsin\frac{x}{3}+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>반원 단면에 관련된 변화율 r(x)=1/√(1−x²)의 0~1 누적값</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>이상적분 ∫₀¹dx/√(1−x²)=π/2. 끝점의 발산에도 적분값은 유한하다.</p><div class="mathline">\[\int_0^1\frac{dx}{\sqrt{1-x^2}}=\frac\pi2\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="32">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형33:
+    &quot;&quot;&quot;33번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 33
+        self.문제이름 = &quot;실생활 활용 문제 33&quot;
+
+    def 계산하고_출력하기(self):
+        x = sp.symbols(&quot;x&quot;, real=True)
+        model = 1/sqrt(1-x**2)
+        print(&quot;모형: 반원 모형의 이상적분&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, 1
+        area = sp.integrate(model, (x, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형33()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형33는 33번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형33()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 x이고, 모델 식은 1/sqrt(1-x**2)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ x=1에서 함수가 무한대로 발산하지만 넓이는 유한합니다. 끝점을 극한으로 접근하는 이상적분입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="32">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 적분" data-search="{&quot;cat&quot;: &quot;역삼각함수 적분&quot;, &quot;name&quot;: &quot;1/(1+x²)&quot;, &quot;formula&quot;: &quot;∫dx/(1+x²) = arctan x + c&quot;, &quot;domain&quot;: &quot;x∈ℝ&quot;, &quot;proof&quot;: [&quot;arctan x의 도함수는 1/(1+x²)이다.&quot;, &quot;미분의 역연산으로 원시함수를 구한다.&quot;, &quot;모든 실수에서 연속이므로 적분상수는 한 개로 둘 수 있다.&quot;], &quot;example&quot;: &quot;∫dx/(4+x²)&quot;, &quot;solution&quot;: &quot;u=x/2로 치환하면 (1/2)arctan(x/2)+c.&quot;, &quot;application&quot;: &quot;확률밀도 f(x)=1/[π(1+x²)]의 −1~1 확률&quot;, &quot;appsolution&quot;: &quot;∫₋₁¹ f(x)dx=(arctan1−arctan(−1))/π=1/2.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 적분</span><span>공식 34 / 37</span></div>
+ <h2>1/(1+x²)</h2><div class="formula"><div class="major-math">\[\int\frac{dx}{1+x^2}=\arctan x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>arctan x의 도함수는 1/(1+x²)이다.</p></li><li><p>미분의 역연산으로 원시함수를 구한다.</p></li><li><p>모든 실수에서 연속이므로 적분상수는 한 개로 둘 수 있다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\arctan x=\frac1{1+x^2}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫dx/(4+x²)</p></div><div class="solution"><b>풀이 및 검산</b><p>u=x/2로 치환하면 (1/2)arctan(x/2)+C.</p><div class="mathline">\[\int\frac{dx}{4+x^2}=\frac12\arctan\frac{x}{2}+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>확률밀도 f(x)=1/[π(1+x²)]의 −1~1 확률</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₋₁¹ f(x)dx=(arctan1−arctan(−1))/π=1/2.</p><div class="mathline">\[\int_{-1}^{1}\frac{dx}{\pi(1+x^2)}=\frac12\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="33">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형34:
+    &quot;&quot;&quot;34번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 34
+        self.문제이름 = &quot;실생활 활용 문제 34&quot;
+
+    def 계산하고_출력하기(self):
+        x = sp.symbols(&quot;x&quot;, real=True)
+        model = 1/(pi*(1+x**2))
+        print(&quot;모형: 코시 확률분포의 구간 확률&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = -1, 1
+        area = sp.integrate(model, (x, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형34()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형34는 34번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형34()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 x이고, 모델 식은 1/(pi*(1+x**2))입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ 코시 분포는 평균과 분산이 정의되지 않지만 구간 확률은 정적분으로 계산할 수 있습니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="33">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 적분" data-search="{&quot;cat&quot;: &quot;역삼각함수 적분&quot;, &quot;name&quot;: &quot;1/(|x|√(x²−1))&quot;, &quot;formula&quot;: &quot;∫dx/(|x|√(x²−1)) = arcsec x + c&quot;, &quot;domain&quot;: &quot;|x|&gt;1인 각 연결 구간&quot;, &quot;proof&quot;: [&quot;arcsec x의 도함수는 1/(|x|√(x²−1))이다.&quot;, &quot;절댓값은 x&lt;−1 구간에서도 부호가 맞도록 보장한다.&quot;, &quot;각 연결 구간에서 미분하여 검증한다.&quot;], &quot;example&quot;: &quot;∫₂³ dx/(x√(x²−1))&quot;, &quot;solution&quot;: &quot;x&gt;1이므로 [arcsec x]₂³=arcsec3−π/3.&quot;, &quot;application&quot;: &quot;굴절각 변화율 r(n)=1/(n√(n²−1))의 n=2~3 누적 변화&quot;, &quot;appsolution&quot;: &quot;∫₂³r(n)dn=arcsec3−arcsec2≈0.1863 rad.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 적분</span><span>공식 35 / 37</span></div>
+ <h2>1/(|x|√(x²−1))</h2><div class="formula"><div class="major-math">\[\int\frac{dx}{|x|\sqrt{x^2-1}}=\operatorname{arcsec}x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> |x|&gt;1인 각 연결 구간</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>arcsec x의 도함수는 1/(|x|√(x²−1))이다.</p></li><li><p>절댓값은 x&lt;−1 구간에서도 부호가 맞도록 보장한다.</p></li><li><p>각 연결 구간에서 미분하여 검증한다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\operatorname{arcsec}x=\frac1{|x|\sqrt{x^2-1}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫₂³ dx/(x√(x²−1))</p></div><div class="solution"><b>풀이 및 검산</b><p>x&gt;1이므로 [arcsec x]₂³=arcsec3−π/3.</p><div class="mathline">\[\int_2^3\frac{dx}{x\sqrt{x^2-1}}=\operatorname{arcsec}3-\frac\pi3\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>굴절각 변화율 r(n)=1/(n√(n²−1))의 n=2~3 누적 변화</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₂³r(n)dn=arcsec3−arcsec2≈0.1863 rad.</p><div class="mathline">\[\int_2^3\frac{dn}{n\sqrt{n^2-1}}=\operatorname{arcsec}3-\operatorname{arcsec}2\approx0.1863\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="34">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형35:
+    &quot;&quot;&quot;35번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 35
+        self.문제이름 = &quot;실생활 활용 문제 35&quot;
+
+    def 계산하고_출력하기(self):
+        n = sp.symbols(&quot;n&quot;, real=True)
+        model = 1/(n*sqrt(n**2-1))
+        print(&quot;모형: 굴절각 변화의 누적값&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 2, 3
+        area = sp.integrate(model, (n, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형35()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형35는 35번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형35()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 n이고, 모델 식은 1/(n*sqrt(n**2-1))입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ n&gt;1이므로 절댓값 |n|을 n으로 바꿀 수 있습니다. 역시컨트의 값 차이를 계산합니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="34">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 적분" data-search="{&quot;cat&quot;: &quot;역삼각함수 적분&quot;, &quot;name&quot;: &quot;−1/√(1−x²)&quot;, &quot;formula&quot;: &quot;∫−dx/√(1−x²) = arccos x + c&quot;, &quot;domain&quot;: &quot;−1&lt;x&lt;1&quot;, &quot;proof&quot;: [&quot;arccos x의 도함수는 −1/√(1−x²)이다.&quot;, &quot;원시함수의 도함수를 계산하면 피적분함수와 같다.&quot;, &quot;arccos x=π/2−arcsin x로도 확인할 수 있다.&quot;], &quot;example&quot;: &quot;∫−2dx/√(1−4x²)&quot;, &quot;solution&quot;: &quot;u=2x로 치환하면 arccos(2x)+c.&quot;, &quot;application&quot;: &quot;각도 감소율 r(c)=−1/√(1−c²)의 c=0~0.5 변화&quot;, &quot;appsolution&quot;: &quot;∫₀^0.5r(c)dc=arccos0.5−arccos0=−π/6.&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 적분</span><span>공식 36 / 37</span></div>
+ <h2>−1/√(1−x²)</h2><div class="formula"><div class="major-math">\[\int\frac{-dx}{\sqrt{1-x^2}}=\arccos x+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> −1&lt;x&lt;1</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>arccos x의 도함수는 −1/√(1−x²)이다.</p></li><li><p>원시함수의 도함수를 계산하면 피적분함수와 같다.</p></li><li><p>arccos x=π/2−arcsin x로도 확인할 수 있다.</p></li></ol><div class="mathline">\[\frac{d}{dx}\arccos x=-\frac1{\sqrt{1-x^2}}\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫−2dx/√(1−4x²)</p></div><div class="solution"><b>풀이 및 검산</b><p>u=2x로 치환하면 arccos(2x)+C.</p><div class="mathline">\[\int\frac{-2\,dx}{\sqrt{1-4x^2}}=\arccos(2x)+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>각도 감소율 r(c)=−1/√(1−c²)의 c=0~0.5 변화</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>∫₀^0.5r(c)dc=arccos0.5−arccos0=−π/6.</p><div class="mathline">\[\int_0^{0.5}\frac{-dc}{\sqrt{1-c^2}}=-\frac\pi6\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="35">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형36:
+    &quot;&quot;&quot;36번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 36
+        self.문제이름 = &quot;실생활 활용 문제 36&quot;
+
+    def 계산하고_출력하기(self):
+        c = sp.symbols(&quot;c&quot;, real=True)
+        model = -1/sqrt(1-c**2)
+        print(&quot;모형: 방향각의 감소량&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, Rational(1,2)
+        area = sp.integrate(model, (c, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형36()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형36는 36번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형36()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 c이고, 모델 식은 -1/sqrt(1-c**2)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ arccos의 도함수는 음수이므로 누적 변화량도 음수입니다. 끝점 c=0.5는 정의역 내부입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="35">공식·증명·해설 복사</button>
+ </article><article class="entry" data-cat="역삼각함수 적분" data-search="{&quot;cat&quot;: &quot;역삼각함수 적분&quot;, &quot;name&quot;: &quot;역삼각함수 자체의 적분&quot;, &quot;formula&quot;: &quot;∫arctan x dx = x arctan x − ½ln(1+x²)+c&quot;, &quot;domain&quot;: &quot;x∈ℝ&quot;, &quot;proof&quot;: [&quot;부분적분에서 u=arctan x, dv=dx를 선택한다.&quot;, &quot;du=dx/(1+x²), v=x이므로 x arctan x−∫x/(1+x²)dx.&quot;, &quot;치환 w=1+x²를 사용하면 남은 적분은 ½ln(1+x²)이다.&quot;], &quot;example&quot;: &quot;∫arcsin x dx&quot;, &quot;solution&quot;: &quot;부분적분으로 x arcsin x+√(1−x²)+c (|x|&lt;1).&quot;, &quot;application&quot;: &quot;누적 방향 비용 a=∫₀¹arctan x dx&quot;, &quot;appsolution&quot;: &quot;a=π/4−½ln2≈0.4388 (라디안·입력단위).&quot;}">
+ <div class="eyebrow"><span class="tag">역삼각함수 적분</span><span>공식 37 / 37</span></div>
+ <h2>역삼각함수 자체의 적분</h2><div class="formula"><div class="major-math">\[\int\arctan x\,dx=x\arctan x-\frac12\ln(1+x^2)+C\]</div></div>
+ <div class="condition"><b>정의역·조건</b> x∈ℝ</div>
+ <h3>01 · 공식의 증명</h3><ol class="steps"><li><p>부분적분에서 u=arctan x, dv=dx를 선택한다.</p></li><li><p>du=dx/(1+x²), v=x이므로 x arctan x−∫x/(1+x²)dx.</p></li><li><p>치환 w=1+x²를 사용하면 남은 적분은 ½ln(1+x²)이다.</p></li></ol><div class="mathline">\[\int\arctan x\,dx=x\arctan x-\int\frac{x}{1+x^2}\,dx=x\arctan x-\frac12\ln(1+x^2)+C\]</div>
+ <h3>02 · 기본 예제</h3><div class="problem"><b>문제</b><p>∫arcsin x dx</p></div><div class="solution"><b>풀이 및 검산</b><p>부분적분으로 x arcsin x+√(1−x²)+C (|x|&lt;1).</p><div class="mathline">\[\int\arcsin x\,dx=x\arcsin x+\sqrt{1-x^2}+C\]</div></div>
+ <h3>03 · 실생활 활용 문제</h3><div class="problem"><b>문제</b><p>누적 방향 비용 A=∫₀¹arctan x dx</p></div><div class="solution"><b>상세 풀이 · 단위 해석</b><p>A=π/4−½ln2≈0.4388 (라디안·입력단위).</p><div class="mathline">\[\int_0^1\arctan x\,dx=\frac\pi4-\frac12\ln2\approx0.4388\]</div></div>
+ <h3>04 · 객체지향(OOP) 파이썬 코드</h3><p class="muted">클래스와 생성자, 인스턴스 메서드로 구성한 SymPy 계산 코드입니다.</p><div class="code-head"><span>Python · SymPy</span><button class="copy" data-kind="py" data-i="36">코드 복사</button></div><pre><code>import sympy as sp
+
+class 실생활수학모형37:
+    &quot;&quot;&quot;37번 실생활 수학 문제를 객체로 표현합니다.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.문제번호 = 37
+        self.문제이름 = &quot;실생활 활용 문제 37&quot;
+
+    def 계산하고_출력하기(self):
+        x = sp.symbols(&quot;x&quot;, real=True)
+        model = atan(x)
+        print(&quot;모형: 누적 방향 비용&quot;)
+        print(&quot;함수:&quot;, model)
+        left, right = 0, 1
+        area = sp.integrate(model, (x, left, right))
+        print(&quot;적분 구간:&quot;, left, &quot;~&quot;, right)
+        print(&quot;누적 변화량(정확값):&quot;, sp.simplify(area))
+        print(&quot;누적 변화량(근삿값):&quot;, sp.N(area, 8))
+
+
+if __name__ == &quot;__main__&quot;:
+    모형 = 실생활수학모형37()
+    모형.계산하고_출력하기()</code></pre>
+ <h3>05 · 파이썬 코드 상세 해석</h3><ol class="steps"><li>① class 실생활수학모형37는 37번 실생활 문제의 계산 기능을 하나의 객체로 묶습니다.</li><li>② __init__ 생성자는 문제번호와 문제이름을 인스턴스 속성으로 저장합니다.</li><li>③ 계산하고_출력하기() 메서드는 기존 예제의 수학 모형 정의와 SymPy 계산 과정을 그대로 수행합니다.</li><li>④ self는 생성된 객체 자신을 가리킵니다. 모형 = 실생활수학모형37()에서 인스턴스가 만들어집니다.</li><li>⑤ 모형.계산하고_출력하기()를 호출하면 미분·적분 결과와 수치 근삿값이 출력됩니다.</li><li>⑥ if __name__ == &quot;__main__&quot; 조건을 사용해 다른 파일에서 import할 때 예제 계산이 자동 실행되지 않게 합니다.</li><li>① 문제의 입력 변수는 x이고, 모델 식은 atan(x)입니다. 먼저 변수와 식을 SymPy 기호로 정의합니다.</li><li>② `sp.diff`는 순간 변화율을, `sp.integrate`는 구간 전체의 누적량을 계산합니다. 해당 문제에서 필요한 연산만 사용합니다.</li><li>③ `left`, `right`에 시작과 끝을 넣고 정적분합니다. 부정적분과 달리 적분상수는 필요하지 않습니다.</li><li>④ `sp.N(..., 8)`은 결과를 소수 근삿값으로 바꿉니다. 정확값과 근삿값을 비교하여 계산 오류를 점검합니다.</li><li>⑤ arctan x를 적분할 때 부분적분법을 적용합니다. 결과는 x arctan x와 로그 항의 차입니다.</li><li>⑥ 이 코드는 `pip install sympy`로 설치한 뒤 실행합니다. 코드에서 시간·각도·확률의 입력 범위와 단위를 함께 확인하세요.</li></ol>
+ <button class="copy outline" data-kind="all" data-i="36">공식·증명·해설 복사</button>
+ </article><section class="intro"><h2>학습 점검</h2><p>미분과 적분을 역연산으로 검산하고, 연쇄법칙·치환적분·부분적분의 적용 조건을 확인하세요. 로그의 진수 조건과 역삼각함수 주값 범위, 단위 해석도 함께 점검하세요.</p></section></main><footer>수학 심화 학습 · 37개 공식과 OOP 실생활 예제</footer><script>const COPYDATA=[{"py": "import sympy as sp\n\nclass 실생활수학모형01:\n    \"\"\"1번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 1\n        self.문제이름 = \"실생활 활용 문제 1\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 200*exp(Rational(3,10)*t)\n        print(\"모형: 세균 수의 순간 증가율\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, t)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 2\n        value = sp.simplify(rate.subs(t, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형01()\n    모형.계산하고_출력하기()", "all": "지수함수 eˣ\n(e^x)′ = e^x\n조건: x∈ℝ\n증명:\n도함수 정의에 따라 (e^x)′ = lim(h→0) (e^(x+h)−e^x)/h.\ne^x를 묶으면 e^x lim(h→0)(e^h−1)/h.\n자연상수 e의 정의에서 극한값은 1이므로 결과는 e^x.\n예제: y=3e^(2x)의 도함수\n풀이: 연쇄법칙: y′=3e^(2x)·2=6e^(2x).\n실생활: 세균 수 N(t)=200e^(0.3t)일 때 t=2의 증가율\n상세 풀이: N′(t)=60e^(0.3t); N′(2)=60e^0.6≈109.33 개/시간. 초기 증가율과 달리 시간에 따라 커진다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형02:\n    \"\"\"2번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 2\n        self.문제이름 = \"실생활 활용 문제 2\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 80*Rational(1,2)**(t/5)\n        print(\"모형: 방사성 물질의 감소율\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, t)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 5\n        value = sp.simplify(rate.subs(t, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형02()\n    모형.계산하고_출력하기()", "all": "일반 지수함수 aˣ\n(a^x)′ = a^x ln a\n조건: a>0, a≠1\n증명:\na^x=e^(x ln a)로 바꾼다.\n연쇄법칙으로 미분하면 e^(x ln a)·ln a.\ne^(x ln a)=a^x이므로 공식이 성립한다.\n예제: y=2^(3x)의 도함수\n풀이: y′=2^(3x)·3ln2.\n실생활: 방사성 물질 M(t)=80(1/2)^(t/5)의 t=5 변화율\n상세 풀이: M′(t)=80(1/2)^(t/5)·ln(1/2)/5; M′(5)=−8ln2≈−5.55 g/년."}, {"py": "import sympy as sp\n\nclass 실생활수학모형03:\n    \"\"\"3번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 3\n        self.문제이름 = \"실생활 활용 문제 3\"\n\n    def 계산하고_출력하기(self):\n        I = sp.symbols(\"I\", real=True)\n        I0 = sp.symbols(\"I0\", positive=True)\n        model = 10*log(I/I0,10)\n        print(\"모형: 소리 세기의 데시벨 민감도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, I)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 100*I0\n        value = sp.simplify(rate.subs(I, point))\n        value = value.subs(I0, 1)  # 기준 세기를 1로 정규화\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형03()\n    모형.계산하고_출력하기()", "all": "자연로그 ln x\n(ln x)′ = 1/x\n조건: x>0\n증명:\ny=ln x라 놓으면 x=e^y이다.\n양변을 x에 관하여 미분하면 1=e^y y′.\ne^y=x이므로 y′=1/x.\n예제: y=ln(3x²+1)의 도함수\n풀이: y′=6x/(3x²+1); 내부 함수의 미분을 곱한다.\n실생활: 소리의 세기 L(I)=10log₁₀(I/I₀)의 I에 대한 민감도\n상세 풀이: L′(I)=10/(I ln10), I>0. 세기가 클수록 동일한 절대 증가량의 데시벨 변화는 작다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형04:\n    \"\"\"4번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 4\n        self.문제이름 = \"실생활 활용 문제 4\"\n\n    def 계산하고_출력하기(self):\n        p = sp.symbols(\"p\", real=True)\n        model = -log(p,2)\n        print(\"모형: 사건 확률에 따른 정보량 민감도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, p)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = Rational(1,4)\n        value = sp.simplify(rate.subs(p, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형04()\n    모형.계산하고_출력하기()", "all": "일반 로그 logₐx\n(log_a x)′ = 1/(x ln a)\n조건: x>0, a>0, a≠1\n증명:\n밑변환 공식 log_a x=ln x/ln a를 쓴다.\nln a는 x와 무관한 상수이다.\n따라서 도함수는 1/(x ln a)이다.\n예제: y=log₂(5x)의 도함수\n풀이: y′=5/(5x ln2)=1/(x ln2), x>0.\n실생활: 정보량 H(p)=−log₂p의 p에 대한 변화율\n상세 풀이: H′(p)=−1/(p ln2), 0<p≤1. 희귀 사건일수록 확률 변화에 민감하다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형05:\n    \"\"\"5번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 5\n        self.문제이름 = \"실생활 활용 문제 5\"\n\n    def 계산하고_출력하기(self):\n        r = sp.symbols(\"r\", real=True)\n        k = sp.symbols(\"k\", positive=True)\n        model = k*log(r)\n        print(\"모형: 거리와 로그형 위치 에너지의 기울기\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, r)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 2\n        value = sp.simplify(rate.subs(r, point))\n        value = value.subs(k, 1)  # 예시 계수 k=1\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형05()\n    모형.계산하고_출력하기()", "all": "로그 절댓값 ln|x|\n(ln|x|)′ = 1/x\n조건: x≠0\n증명:\nx>0이면 ln|x|=ln x이므로 도함수는 1/x.\nx<0이면 ln|x|=ln(−x)이다.\n연쇄법칙으로 (1/(−x))·(−1)=1/x이다.\n예제: y=ln|x²−4|의 도함수\n풀이: y′=2x/(x²−4), x≠±2.\n실생활: 거리 r에 대한 U(r)=k ln r의 기울기\n상세 풀이: U′(r)=k/r (r>0). 거리가 두 배가 되면 기울기의 크기는 절반이다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형06:\n    \"\"\"6번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 6\n        self.문제이름 = \"실생활 활용 문제 6\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = t**t\n        print(\"모형: 시간 의존 거듭제곱 성장률\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, t)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 2\n        value = sp.simplify(rate.subs(t, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형06()\n    모형.계산하고_출력하기()", "all": "로그미분법 xˣ\n(x^x)′ = x^x(ln x+1)\n조건: x>0\n증명:\ny=x^x>0로 놓고 ln y=x ln x를 취한다.\n양변을 미분하면 y′/y=ln x+1이다.\ny=x^x를 대입해 y′=x^x(ln x+1)을 얻는다.\n예제: y=x^(2x)의 도함수\n풀이: ln y=2x ln x이므로 y′=x^(2x)(2ln x+2).\n실생활: 성장 모형 F(t)=t^t (t>0)의 t=2 순간 변화율\n상세 풀이: F′(2)=4(ln2+1)≈6.77 단위/시간."}, {"py": "import sympy as sp\n\nclass 실생활수학모형07:\n    \"\"\"7번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 7\n        self.문제이름 = \"실생활 활용 문제 7\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 2*sin(pi*t)\n        print(\"모형: 진동 위치에서 순간 속도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, t)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = Rational(1,2)\n        value = sp.simplify(rate.subs(t, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형07()\n    모형.계산하고_출력하기()", "all": "사인 sin x\n(sin x)′ = cos x\n조건: x는 라디안\n증명:\n덧셈정리 sin(x+h)=sin x cos h+cos x sin h를 쓴다.\n차분몫을 sin x(cos h−1)/h+cos x(sin h)/h로 정리한다.\n라디안에서 두 극한은 각각 0,1이므로 cos x이다.\n예제: y=sin(3x)의 도함수\n풀이: y′=3cos(3x).\n실생활: 진동 위치 s(t)=2sin(πt)의 t=0.5 속도\n상세 풀이: v(t)=2πcos(πt); v(0.5)=0 m/s. 극점에서 순간 속도가 0이다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형08:\n    \"\"\"8번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 8\n        self.문제이름 = \"실생활 활용 문제 8\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 220*cos(100*pi*t)\n        print(\"모형: 교류 전압의 순간 변화율\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, t)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = Rational(1,200)\n        value = sp.simplify(rate.subs(t, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형08()\n    모형.계산하고_출력하기()", "all": "코사인 cos x\n(cos x)′ = −sin x\n조건: x는 라디안\n증명:\ncos(x+h)=cos x cos h−sin x sin h를 적용한다.\n차분몫은 cos x(cos h−1)/h−sin x(sin h)/h.\n표준 극한으로 첫 항은 0, 둘째 항은 −sin x이다.\n예제: y=4cos(2x)의 도함수\n풀이: y′=−8sin(2x).\n실생활: 교류 전압 V(t)=220cos(100πt)의 t=0.005 변화율\n상세 풀이: V′(t)=−22000πsin(100πt); t=0.005에서 −22000π V/s."}, {"py": "import sympy as sp\n\nclass 실생활수학모형09:\n    \"\"\"9번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 9\n        self.문제이름 = \"실생활 활용 문제 9\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = tan(theta)\n        print(\"모형: 관측각과 경사의 민감도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, theta)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = pi/4\n        value = sp.simplify(rate.subs(theta, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형09()\n    모형.계산하고_출력하기()", "all": "탄젠트 tan x\n(tan x)′ = sec²x = 1+tan²x\n조건: cos x≠0\n증명:\ntan x=sin x/cos x로 표현한다.\n몫의 미분법: (cos²x+sin²x)/cos²x.\nsin²x+cos²x=1이므로 sec²x이다.\n예제: y=tan(x²)의 도함수\n풀이: y′=2x sec²(x²), cos(x²)≠0.\n실생활: 관측각 θ에서 경사 m(θ)=tanθ의 민감도\n상세 풀이: dm/dθ=sec²θ. θ=π/4에서 2 (라디안⁻¹)."}, {"py": "import sympy as sp\n\nclass 실생활수학모형10:\n    \"\"\"10번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 10\n        self.문제이름 = \"실생활 활용 문제 10\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = cot(theta)\n        print(\"모형: 그림자 길이 비율의 변화\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, theta)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = pi/4\n        value = sp.simplify(rate.subs(theta, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형10()\n    모형.계산하고_출력하기()", "all": "코탄젠트 cot x\n(cot x)′ = −csc²x\n조건: sin x≠0\n증명:\ncot x=cos x/sin x를 사용한다.\n몫의 미분으로 (−sin²x−cos²x)/sin²x.\n항등식을 적용하면 −1/sin²x이다.\n예제: y=cot(5x)의 도함수\n풀이: y′=−5csc²(5x).\n실생활: 그림자 비율 R(θ)=cotθ의 각도 민감도\n상세 풀이: R′(θ)=−csc²θ. θ=π/4에서 −2 (라디안⁻¹)."}, {"py": "import sympy as sp\n\nclass 실생활수학모형11:\n    \"\"\"11번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 11\n        self.문제이름 = \"실생활 활용 문제 11\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = sec(theta)\n        print(\"모형: 빛 경로 길이 배율의 변화\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, theta)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = pi/3\n        value = sp.simplify(rate.subs(theta, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형11()\n    모형.계산하고_출력하기()", "all": "시컨트 sec x\n(sec x)′ = sec x tan x\n조건: cos x≠0\n증명:\nsec x=(cos x)^(−1)로 쓴다.\n연쇄법칙으로 −(cos x)^(−2)(−sin x).\nsin x/cos²x=sec x tan x이다.\n예제: y=sec(2x)의 도함수\n풀이: y′=2sec(2x)tan(2x).\n실생활: 빛 경로 배율 S(θ)=secθ의 각도 민감도\n상세 풀이: S′(θ)=secθtanθ. θ=π/3에서 2√3 (라디안⁻¹)."}, {"py": "import sympy as sp\n\nclass 실생활수학모형12:\n    \"\"\"12번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 12\n        self.문제이름 = \"실생활 활용 문제 12\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = csc(theta)\n        print(\"모형: 측정 보정 계수의 변화\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, theta)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = pi/6\n        value = sp.simplify(rate.subs(theta, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형12()\n    모형.계산하고_출력하기()", "all": "코시컨트 csc x\n(csc x)′ = −csc x cot x\n조건: sin x≠0\n증명:\ncsc x=(sin x)^(−1)로 쓴다.\n연쇄법칙으로 −(sin x)^(−2)cos x.\n−cos x/sin²x=−csc x cot x이다.\n예제: y=csc(3x)의 도함수\n풀이: y′=−3csc(3x)cot(3x).\n실생활: 측정 보정 C(θ)=cscθ의 각도 민감도\n상세 풀이: C′(θ)=−cscθcotθ. θ=π/6에서 −2√3 (라디안⁻¹)."}, {"py": "import sympy as sp\n\nclass 실생활수학모형13:\n    \"\"\"13번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 13\n        self.문제이름 = \"실생활 활용 문제 13\"\n\n    def 계산하고_출력하기(self):\n        h = sp.symbols(\"h\", real=True)\n        model = asin(h/10)\n        print(\"모형: 높이에 따른 올려다보는 각도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, h)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 5\n        value = sp.simplify(rate.subs(h, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형13()\n    모형.계산하고_출력하기()", "all": "아크사인 arcsin x\n(arcsin x)′ = 1/√(1−x²)\n조건: −1<x<1; 값의 범위 [−π/2,π/2]\n증명:\ny=arcsin x라 놓으면 sin y=x이다.\ncos y·y′=1이므로 y′=1/cos y.\n주값 범위에서 cos y≥0이므로 cos y=√(1−x²).\n예제: y=arcsin(2x)의 도함수\n풀이: y′=2/√(1−4x²), |x|<1/2.\n실생활: 높이 h에서 θ(h)=arcsin(h/10)의 h=5 각도 변화율\n상세 풀이: θ′(h)=1/[10√(1−(h/10)²)]; θ′(5)=1/(5√3)≈0.1155 rad/m."}, {"py": "import sympy as sp\n\nclass 실생활수학모형14:\n    \"\"\"14번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 14\n        self.문제이름 = \"실생활 활용 문제 14\"\n\n    def 계산하고_출력하기(self):\n        c = sp.symbols(\"c\", real=True)\n        model = acos(c)\n        print(\"모형: 방향 코사인과 각도의 변화\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, c)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = Rational(3,5)\n        value = sp.simplify(rate.subs(c, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형14()\n    모형.계산하고_출력하기()", "all": "아크코사인 arccos x\n(arccos x)′ = −1/√(1−x²)\n조건: −1<x<1; 값의 범위 [0,π]\n증명:\ny=arccos x라 두면 cos y=x이다.\n−sin y·y′=1에서 y′=−1/sin y.\n주값 범위에서 sin y≥0이므로 sin y=√(1−x²).\n예제: y=arccos(x/2)의 도함수\n풀이: y′=−1/[2√(1−x²/4)], |x|<2.\n실생활: 방향각 θ(c)=arccos c에서 c=0.6의 변화율\n상세 풀이: θ′(0.6)=−1/√(1−0.36)=−1.25 rad/단위."}, {"py": "import sympy as sp\n\nclass 실생활수학모형15:\n    \"\"\"15번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 15\n        self.문제이름 = \"실생활 활용 문제 15\"\n\n    def 계산하고_출력하기(self):\n        d = sp.symbols(\"d\", real=True)\n        model = atan(2/d)\n        print(\"모형: 카메라 거리와 방향각\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, d)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 2\n        value = sp.simplify(rate.subs(d, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형15()\n    모형.계산하고_출력하기()", "all": "아크탄젠트 arctan x\n(arctan x)′ = 1/(1+x²)\n조건: x∈ℝ; 값의 범위 (−π/2,π/2)\n증명:\ny=arctan x이면 tan y=x이다.\nsec²y·y′=1이므로 y′=1/sec²y.\nsec²y=1+tan²y=1+x²이므로 공식이 성립한다.\n예제: y=arctan(3x)의 도함수\n풀이: y′=3/(1+9x²).\n실생활: 카메라 방향 θ(d)=arctan(2/d), d>0에서 d=2의 변화율\n상세 풀이: θ′(d)=−2/(d²+4); θ′(2)=−1/4 rad/m."}, {"py": "import sympy as sp\n\nclass 실생활수학모형16:\n    \"\"\"16번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 16\n        self.문제이름 = \"실생활 활용 문제 16\"\n\n    def 계산하고_출력하기(self):\n        r = sp.symbols(\"r\", real=True)\n        model = acot(r)\n        print(\"모형: 코탄젠트 비율과 각도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, r)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 1\n        value = sp.simplify(rate.subs(r, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형16()\n    모형.계산하고_출력하기()", "all": "아크코탄젠트 arccot x\n(arccot x)′ = −1/(1+x²)\n조건: x∈ℝ; 값의 범위 (0,π)\n증명:\ny=arccot x, cot y=x로 정의한다.\n−csc²y·y′=1이므로 y′=−1/csc²y.\ncsc²y=1+cot²y=1+x²이다.\n예제: y=arccot(2x)의 도함수\n풀이: y′=−2/(1+4x²).\n실생활: 각도 θ(r)=arccot r의 r=1 민감도\n상세 풀이: θ′(1)=−1/2 rad/단위. 정의한 주값 가지를 확인해야 한다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형17:\n    \"\"\"17번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 17\n        self.문제이름 = \"실생활 활용 문제 17\"\n\n    def 계산하고_출력하기(self):\n        n = sp.symbols(\"n\", real=True)\n        model = asec(n)\n        print(\"모형: 광학 굴절률 모형의 각도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, n)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 2\n        value = sp.simplify(rate.subs(n, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형17()\n    모형.계산하고_출력하기()", "all": "아크시컨트 arcsec x\n(arcsec x)′ = 1/(|x|√(x²−1))\n조건: |x|>1; 주값 범위 [0,π], π/2 제외\n증명:\ny=arcsec x이면 sec y=x이다.\nsec y tan y·y′=1에서 y′=1/(x tan y).\n주값 가지에서 x tan y=|x|√(x²−1)이므로 결과가 성립한다.\n예제: y=arcsec(2x)의 도함수\n풀이: y′=2/[|2x|√(4x²−1)] (|x|>1/2).\n실생활: 광학 모형 θ(n)=arcsec n, n>1에서 n=2 민감도\n상세 풀이: θ′(2)=1/(2√3)≈0.2887 rad/단위."}, {"py": "import sympy as sp\n\nclass 실생활수학모형18:\n    \"\"\"18번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 18\n        self.문제이름 = \"실생활 활용 문제 18\"\n\n    def 계산하고_출력하기(self):\n        r = sp.symbols(\"r\", real=True)\n        model = acsc(r)\n        print(\"모형: 코시컨트 비율과 각도\")\n        print(\"함수:\", model)\n        rate = sp.diff(model, r)\n        print(\"미분 결과:\", sp.simplify(rate))\n        point = 2\n        value = sp.simplify(rate.subs(r, point))\n        print(\"해석 지점:\", point)\n        print(\"순간 변화율(정확값):\", value)\n        print(\"순간 변화율(근삿값):\", sp.N(value, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형18()\n    모형.계산하고_출력하기()", "all": "아크코시컨트 arccsc x\n(arccsc x)′ = −1/(|x|√(x²−1))\n조건: |x|>1; 주값 범위 [−π/2,0)∪(0,π/2]\n증명:\ny=arccsc x이면 csc y=x이다.\n−csc y cot y·y′=1에서 y′=−1/(x cot y).\n주값 가지에서 x cot y=|x|√(x²−1)이다.\n예제: y=arccsc(3x)의 도함수\n풀이: y′=−3/[|3x|√(9x²−1)] (|x|>1/3).\n실생활: 각도 θ(r)=arccsc r, r>1에서 r=2 변화율\n상세 풀이: θ′(2)=−1/(2√3)≈−0.2887 rad/단위."}, {"py": "import sympy as sp\n\nclass 실생활수학모형19:\n    \"\"\"19번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 19\n        self.문제이름 = \"실생활 활용 문제 19\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 30*exp(t/5)\n        print(\"모형: 시간에 따른 누적 유입 인원\")\n        print(\"함수:\", model)\n        left, right = 0, 5\n        area = sp.integrate(model, (t, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형19()\n    모형.계산하고_출력하기()", "all": "eˣ의 부정적분\n∫e^x dx = e^x + C\n조건: x∈ℝ\n증명:\nF(x)=e^x를 미분하면 F′(x)=e^x이다.\n부정적분은 주어진 함수의 모든 원시함수를 찾는 것이다.\n상수의 미분은 0이므로 적분상수 C를 더한다.\n예제: ∫5e^(2x) dx\n풀이: 치환 u=2x, du=2dx: (5/2)e^(2x)+C.\n실생활: 유입률 r(t)=30e^(0.2t) (명/시간)의 0~5시간 누적 유입\n상세 풀이: ∫₀⁵30e^(0.2t)dt=150(e−1)≈257.74명. 연속 모형의 기대 누적량이다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형20:\n    \"\"\"20번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 20\n        self.문제이름 = \"실생활 활용 문제 20\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 2**t\n        print(\"모형: 지수적으로 증가하는 약품 투입량\")\n        print(\"함수:\", model)\n        left, right = 0, 3\n        area = sp.integrate(model, (t, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형20()\n    모형.계산하고_출력하기()", "all": "aˣ의 부정적분\n∫a^x dx = a^x/ln a + C\n조건: a>0, a≠1\n증명:\na^x의 미분은 a^x ln a이다.\n따라서 a^x를 ln a로 나눈 함수를 미분하면 a^x이다.\n원시함수의 상수 차이를 C로 표시한다.\n예제: ∫3^x dx\n풀이: 3^x/ln3+C.\n실생활: 약품 투입률 r(t)=2^t mg/h의 0~3시간 누적량\n상세 풀이: ∫₀³2^t dt=(8−1)/ln2≈10.10 mg."}, {"py": "import sympy as sp\n\nclass 실생활수학모형21:\n    \"\"\"21번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 21\n        self.문제이름 = \"실생활 활용 문제 21\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 12/t\n        print(\"모형: 속도 함수의 이동 거리\")\n        print(\"함수:\", model)\n        left, right = 1, 4\n        area = sp.integrate(model, (t, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형21()\n    모형.계산하고_출력하기()", "all": "1/x의 부정적분\n∫(1/x) dx = ln|x| + C\n조건: x≠0, 각각의 연결 구간\n증명:\nln|x|의 미분은 1/x이다.\nx>0과 x<0을 각각 확인한다.\n0을 가로지르는 단일 구간에서는 원시함수를 정의할 수 없다.\n예제: ∫(3/x) dx\n풀이: 3ln|x|+C, x≠0.\n실생활: 속도 v(t)=12/t km/h, 1≤t≤4의 이동거리\n상세 풀이: ∫₁⁴12/t dt=12ln4≈16.64 km. t=0은 모형에서 제외한다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형22:\n    \"\"\"22번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 22\n        self.문제이름 = \"실생활 활용 문제 22\"\n\n    def 계산하고_출력하기(self):\n        q = sp.symbols(\"q\", real=True)\n        model = log(q)\n        print(\"모형: 로그형 한계 편익의 누적값\")\n        print(\"함수:\", model)\n        left, right = 1, E\n        area = sp.integrate(model, (q, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형22()\n    모형.계산하고_출력하기()", "all": "ln x의 부정적분\n∫ln x dx = x ln x − x + C\n조건: x>0\n증명:\n부분적분 ∫u dv=uv−∫v du를 쓴다.\nu=ln x, dv=dx이면 du=dx/x, v=x이다.\n∫ln x dx=x ln x−∫1dx=x ln x−x+C.\n예제: ∫₂⁴ln x dx\n풀이: [x ln x−x]₂⁴=4ln4−2ln2−2=6ln2−2.\n실생활: 단위당 편익 B(q)=ln q (q>0)의 1~e 누적 편익\n상세 풀이: ∫₁ᵉln q dq=[q ln q−q]₁ᵉ=1 (모형 단위)."}, {"py": "import sympy as sp\n\nclass 실생활수학모형23:\n    \"\"\"23번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 23\n        self.문제이름 = \"실생활 활용 문제 23\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 2*sin(pi*t)\n        print(\"모형: 진동 속도로부터 변위 계산\")\n        print(\"함수:\", model)\n        left, right = 0, 1\n        area = sp.integrate(model, (t, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형23()\n    모형.계산하고_출력하기()", "all": "사인 sin x\n∫sin x dx = −cos x + C\n조건: x∈ℝ\n증명:\ncos x의 도함수는 −sin x이다.\n따라서 −cos x의 도함수는 sin x이다.\n적분상수 C를 더해 모든 원시함수를 표현한다.\n예제: ∫sin(3x) dx\n풀이: −(1/3)cos(3x)+C.\n실생활: 속도 v(t)=2sin(πt) m/s의 0~1초 변위\n상세 풀이: ∫₀¹2sin(πt)dt=4/π≈1.273 m."}, {"py": "import sympy as sp\n\nclass 실생활수학모형24:\n    \"\"\"24번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 24\n        self.문제이름 = \"실생활 활용 문제 24\"\n\n    def 계산하고_출력하기(self):\n        t = sp.symbols(\"t\", real=True)\n        model = 3*cos(pi*t/2)\n        print(\"모형: 주기 운동의 변위 계산\")\n        print(\"함수:\", model)\n        left, right = 0, 1\n        area = sp.integrate(model, (t, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형24()\n    모형.계산하고_출력하기()", "all": "코사인 cos x\n∫cos x dx = sin x + C\n조건: x∈ℝ\n증명:\nsin x를 미분하면 cos x이다.\n따라서 sin x가 cos x의 원시함수이다.\n상수 C는 미분 결과를 바꾸지 않는다.\n예제: ∫4cos(2x) dx\n풀이: 2sin(2x)+C.\n실생활: 속도 v(t)=3cos(πt/2) m/s의 0~1초 변위\n상세 풀이: ∫₀¹3cos(πt/2)dt=6/π≈1.910 m."}, {"py": "import sympy as sp\n\nclass 실생활수학모형25:\n    \"\"\"25번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 25\n        self.문제이름 = \"실생활 활용 문제 25\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = sec(theta)**2\n        print(\"모형: 경사 함수의 총변화량\")\n        print(\"함수:\", model)\n        left, right = 0, pi/4\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형25()\n    모형.계산하고_출력하기()", "all": "시컨트 제곱 sec²x\n∫sec²x dx = tan x + C\n조건: cos x≠0인 각 연결 구간\n증명:\ntan x의 도함수는 sec²x이다.\n따라서 tan x가 원시함수이다.\n불연속점 π/2+kπ를 가로질러 적분하지 않는다.\n예제: ∫sec²(2x) dx\n풀이: (1/2)tan(2x)+C.\n실생활: 경사 변화율 m′(θ)=sec²θ의 0~π/4 총변화\n상세 풀이: m(π/4)−m(0)=tan(π/4)−tan0=1."}, {"py": "import sympy as sp\n\nclass 실생활수학모형26:\n    \"\"\"26번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 26\n        self.문제이름 = \"실생활 활용 문제 26\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = -csc(theta)**2\n        print(\"모형: 그림자 비율의 총변화량\")\n        print(\"함수:\", model)\n        left, right = pi/4, pi/2\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형26()\n    모형.계산하고_출력하기()", "all": "코시컨트 제곱 csc²x\n∫csc²x dx = −cot x + C\n조건: sin x≠0인 각 연결 구간\n증명:\ncot x의 도함수는 −csc²x이다.\n따라서 −cot x를 미분하면 csc²x이다.\n정의되지 않는 kπ를 피해야 한다.\n예제: ∫csc²(3x) dx\n풀이: −(1/3)cot(3x)+C.\n실생활: 변화율 R′(θ)=−csc²θ의 π/4~π/2 총변화\n상세 풀이: ∫π/4^π/2 −csc²θ dθ=[cotθ]π/4^π/2=−1."}, {"py": "import sympy as sp\n\nclass 실생활수학모형27:\n    \"\"\"27번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 27\n        self.문제이름 = \"실생활 활용 문제 27\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = sec(theta)*tan(theta)\n        print(\"모형: 광학 배율의 총변화량\")\n        print(\"함수:\", model)\n        left, right = 0, pi/3\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형27()\n    모형.계산하고_출력하기()", "all": "sec x tan x\n∫sec x tan x dx = sec x + C\n조건: cos x≠0\n증명:\nsec x의 도함수는 sec x tan x이다.\n미분 공식을 역으로 적용한다.\n정의역의 연결 구간마다 적분상수가 달라질 수 있다.\n예제: ∫2sec(2x)tan(2x) dx\n풀이: sec(2x)+C.\n실생활: 광학 배율 S′(θ)=secθtanθ의 0~π/3 변화량\n상세 풀이: S(π/3)−S(0)=2−1=1."}, {"py": "import sympy as sp\n\nclass 실생활수학모형28:\n    \"\"\"28번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 28\n        self.문제이름 = \"실생활 활용 문제 28\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = -csc(theta)*cot(theta)\n        print(\"모형: 보정 계수의 총변화량\")\n        print(\"함수:\", model)\n        left, right = pi/6, pi/2\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형28()\n    모형.계산하고_출력하기()", "all": "csc x cot x\n∫csc x cot x dx = −csc x + C\n조건: sin x≠0\n증명:\ncsc x의 도함수는 −csc x cot x이다.\n따라서 −csc x가 원시함수이다.\nsin x=0인 지점은 적분 구간에서 제외한다.\n예제: ∫3csc(3x)cot(3x) dx\n풀이: −csc(3x)+C.\n실생활: 보정 계수 C′(θ)=−cscθcotθ의 π/6~π/2 변화\n상세 풀이: C(π/2)−C(π/6)=1−2=−1."}, {"py": "import sympy as sp\n\nclass 실생활수학모형29:\n    \"\"\"29번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 29\n        self.문제이름 = \"실생활 활용 문제 29\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = tan(theta)\n        print(\"모형: 경사 변화율의 누적값\")\n        print(\"함수:\", model)\n        left, right = 0, pi/4\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형29()\n    모형.계산하고_출력하기()", "all": "탄젠트 tan x\n∫tan x dx = −ln|cos x| + C\n조건: cos x≠0\n증명:\ntan x=sin x/cos x이다.\nu=cos x로 치환하면 du=−sin x dx이다.\n−∫du/u=−ln|u|+C이다.\n예제: ∫tan(2x) dx\n풀이: −(1/2)ln|cos(2x)|+C.\n실생활: 기울기 변화율 r(θ)=tanθ의 0~π/4 누적값\n상세 풀이: ∫₀^π/4 tanθ dθ=−ln(cosπ/4)=½ln2≈0.3466."}, {"py": "import sympy as sp\n\nclass 실생활수학모형30:\n    \"\"\"30번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 30\n        self.문제이름 = \"실생활 활용 문제 30\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = cot(theta)\n        print(\"모형: 각도별 비율의 누적값\")\n        print(\"함수:\", model)\n        left, right = pi/4, pi/2\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형30()\n    모형.계산하고_출력하기()", "all": "코탄젠트 cot x\n∫cot x dx = ln|sin x| + C\n조건: sin x≠0\n증명:\ncot x=cos x/sin x이다.\nu=sin x, du=cos x dx로 치환한다.\n∫du/u=ln|u|+C이다.\n예제: ∫cot(3x) dx\n풀이: (1/3)ln|sin(3x)|+C.\n실생활: 비율 r(θ)=cotθ의 π/4~π/2 누적값\n상세 풀이: ∫π/4^π/2 cotθ dθ=ln1−ln(√2/2)=½ln2."}, {"py": "import sympy as sp\n\nclass 실생활수학모형31:\n    \"\"\"31번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 31\n        self.문제이름 = \"실생활 활용 문제 31\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = sec(theta)\n        print(\"모형: 경로 길이 배율의 누적값\")\n        print(\"함수:\", model)\n        left, right = 0, pi/3\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형31()\n    모형.계산하고_출력하기()", "all": "시컨트 sec x\n∫sec x dx = ln|sec x+tan x| + C\n조건: cos x≠0\n증명:\n분자와 분모에 sec x+tan x를 곱한다.\nsec x(sec x+tan x)/(sec x+tan x)로 만든다.\nu=sec x+tan x이면 du=sec x(sec x+tan x)dx이므로 ln|u|+C이다.\n예제: ∫sec(2x) dx\n풀이: (1/2)ln|sec(2x)+tan(2x)|+C.\n실생활: 경로 배율 r(θ)=secθ의 0~π/3 누적값\n상세 풀이: ∫₀^π/3 secθdθ=ln(2+√3)≈1.317."}, {"py": "import sympy as sp\n\nclass 실생활수학모형32:\n    \"\"\"32번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 32\n        self.문제이름 = \"실생활 활용 문제 32\"\n\n    def 계산하고_출력하기(self):\n        theta = sp.symbols(\"theta\", real=True)\n        model = csc(theta)\n        print(\"모형: 측정 보정량의 누적값\")\n        print(\"함수:\", model)\n        left, right = pi/6, pi/2\n        area = sp.integrate(model, (theta, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형32()\n    모형.계산하고_출력하기()", "all": "코시컨트 csc x\n∫csc x dx = ln|csc x−cot x| + C\n조건: sin x≠0\n증명:\ncsc x(csc x−cot x)/(csc x−cot x)로 변형한다.\nu=csc x−cot x이면 du=csc x(csc x−cot x)dx이다.\n∫du/u=ln|csc x−cot x|+C이다.\n예제: ∫csc(2x) dx\n풀이: (1/2)ln|csc(2x)−cot(2x)|+C.\n실생활: 보정 r(θ)=cscθ의 π/6~π/2 누적값\n상세 풀이: ∫π/6^π/2 cscθdθ=ln1−ln(2−√3)=ln(2+√3)."}, {"py": "import sympy as sp\n\nclass 실생활수학모형33:\n    \"\"\"33번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 33\n        self.문제이름 = \"실생활 활용 문제 33\"\n\n    def 계산하고_출력하기(self):\n        x = sp.symbols(\"x\", real=True)\n        model = 1/sqrt(1-x**2)\n        print(\"모형: 반원 모형의 이상적분\")\n        print(\"함수:\", model)\n        left, right = 0, 1\n        area = sp.integrate(model, (x, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형33()\n    모형.계산하고_출력하기()", "all": "1/√(1−x²)\n∫dx/√(1−x²) = arcsin x + C\n조건: −1<x<1\n증명:\narcsin x의 도함수는 1/√(1−x²)이다.\n따라서 역삼각함수 미분 공식을 역으로 적용한다.\n끝점에서는 피적분함수가 발산하므로 정적분은 이상적분으로 다룬다.\n예제: ∫dx/√(9−x²)\n풀이: x=3u로 치환하면 arcsin(x/3)+C (|x|<3).\n실생활: 반원 단면에 관련된 변화율 r(x)=1/√(1−x²)의 0~1 누적값\n상세 풀이: 이상적분 ∫₀¹dx/√(1−x²)=π/2. 끝점의 발산에도 적분값은 유한하다."}, {"py": "import sympy as sp\n\nclass 실생활수학모형34:\n    \"\"\"34번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 34\n        self.문제이름 = \"실생활 활용 문제 34\"\n\n    def 계산하고_출력하기(self):\n        x = sp.symbols(\"x\", real=True)\n        model = 1/(pi*(1+x**2))\n        print(\"모형: 코시 확률분포의 구간 확률\")\n        print(\"함수:\", model)\n        left, right = -1, 1\n        area = sp.integrate(model, (x, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형34()\n    모형.계산하고_출력하기()", "all": "1/(1+x²)\n∫dx/(1+x²) = arctan x + C\n조건: x∈ℝ\n증명:\narctan x의 도함수는 1/(1+x²)이다.\n미분의 역연산으로 원시함수를 구한다.\n모든 실수에서 연속이므로 적분상수는 한 개로 둘 수 있다.\n예제: ∫dx/(4+x²)\n풀이: u=x/2로 치환하면 (1/2)arctan(x/2)+C.\n실생활: 확률밀도 f(x)=1/[π(1+x²)]의 −1~1 확률\n상세 풀이: ∫₋₁¹ f(x)dx=(arctan1−arctan(−1))/π=1/2."}, {"py": "import sympy as sp\n\nclass 실생활수학모형35:\n    \"\"\"35번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 35\n        self.문제이름 = \"실생활 활용 문제 35\"\n\n    def 계산하고_출력하기(self):\n        n = sp.symbols(\"n\", real=True)\n        model = 1/(n*sqrt(n**2-1))\n        print(\"모형: 굴절각 변화의 누적값\")\n        print(\"함수:\", model)\n        left, right = 2, 3\n        area = sp.integrate(model, (n, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형35()\n    모형.계산하고_출력하기()", "all": "1/(|x|√(x²−1))\n∫dx/(|x|√(x²−1)) = arcsec x + C\n조건: |x|>1인 각 연결 구간\n증명:\narcsec x의 도함수는 1/(|x|√(x²−1))이다.\n절댓값은 x<−1 구간에서도 부호가 맞도록 보장한다.\n각 연결 구간에서 미분하여 검증한다.\n예제: ∫₂³ dx/(x√(x²−1))\n풀이: x>1이므로 [arcsec x]₂³=arcsec3−π/3.\n실생활: 굴절각 변화율 r(n)=1/(n√(n²−1))의 n=2~3 누적 변화\n상세 풀이: ∫₂³r(n)dn=arcsec3−arcsec2≈0.1863 rad."}, {"py": "import sympy as sp\n\nclass 실생활수학모형36:\n    \"\"\"36번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 36\n        self.문제이름 = \"실생활 활용 문제 36\"\n\n    def 계산하고_출력하기(self):\n        c = sp.symbols(\"c\", real=True)\n        model = -1/sqrt(1-c**2)\n        print(\"모형: 방향각의 감소량\")\n        print(\"함수:\", model)\n        left, right = 0, Rational(1,2)\n        area = sp.integrate(model, (c, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형36()\n    모형.계산하고_출력하기()", "all": "−1/√(1−x²)\n∫−dx/√(1−x²) = arccos x + C\n조건: −1<x<1\n증명:\narccos x의 도함수는 −1/√(1−x²)이다.\n원시함수의 도함수를 계산하면 피적분함수와 같다.\narccos x=π/2−arcsin x로도 확인할 수 있다.\n예제: ∫−2dx/√(1−4x²)\n풀이: u=2x로 치환하면 arccos(2x)+C.\n실생활: 각도 감소율 r(c)=−1/√(1−c²)의 c=0~0.5 변화\n상세 풀이: ∫₀^0.5r(c)dc=arccos0.5−arccos0=−π/6."}, {"py": "import sympy as sp\n\nclass 실생활수학모형37:\n    \"\"\"37번 실생활 수학 문제를 객체로 표현합니다.\"\"\"\n\n    def __init__(self):\n        self.문제번호 = 37\n        self.문제이름 = \"실생활 활용 문제 37\"\n\n    def 계산하고_출력하기(self):\n        x = sp.symbols(\"x\", real=True)\n        model = atan(x)\n        print(\"모형: 누적 방향 비용\")\n        print(\"함수:\", model)\n        left, right = 0, 1\n        area = sp.integrate(model, (x, left, right))\n        print(\"적분 구간:\", left, \"~\", right)\n        print(\"누적 변화량(정확값):\", sp.simplify(area))\n        print(\"누적 변화량(근삿값):\", sp.N(area, 8))\n\n\nif __name__ == \"__main__\":\n    모형 = 실생활수학모형37()\n    모형.계산하고_출력하기()", "all": "역삼각함수 자체의 적분\n∫arctan x dx = x arctan x − ½ln(1+x²)+C\n조건: x∈ℝ\n증명:\n부분적분에서 u=arctan x, dv=dx를 선택한다.\ndu=dx/(1+x²), v=x이므로 x arctan x−∫x/(1+x²)dx.\n치환 w=1+x²를 사용하면 남은 적분은 ½ln(1+x²)이다.\n예제: ∫arcsin x dx\n풀이: 부분적분으로 x arcsin x+√(1−x²)+C (|x|<1).\n실생활: 누적 방향 비용 A=∫₀¹arctan x dx\n상세 풀이: A=π/4−½ln2≈0.4388 (라디안·입력단위)."}];
+const cards=[...document.querySelectorAll('.entry')],search=document.getElementById('search'),category=document.getElementById('category');
+function filterCards(){const q=search.value.trim().toLowerCase(),c=category.value;let n=0;for(const el of cards){const ok=(!c||el.dataset.cat===c)&&(!q||el.dataset.search.includes(q));el.hidden=!ok;if(ok)n++;}document.getElementById('count').textContent=`${n}개 공식 표시 / 전체 37개`;}
+search.addEventListener('input',filterCards);category.addEventListener('change',filterCards);filterCards();
+async function copyText(t){try{await navigator.clipboard.writeText(t)}catch(e){const ta=document.createElement('textarea');ta.value=t;document.body.append(ta);ta.select();document.execCommand('copy');ta.remove()}}
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const old=b.textContent;await copyText(COPYDATA[Number(b.dataset.i)][b.dataset.kind]);b.textContent='복사 완료';setTimeout(()=>b.textContent=old,1300)}));
+</script></body></html>
